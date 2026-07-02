@@ -1,0 +1,209 @@
+{
+  "Rajasthan": {
+    "Festivals": [
+      { "title": "Desert Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Celebrated in Jaisalmer with folk music, camel races, and dance performances.", "audio": "https://www.soundjay.com/misc/sounds/desert-wind.mp3" },
+      { "title": "Gangaur Festival", "image": "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=200&fit=crop", "description": "Dedicated to Goddess Gauri, symbolizing love and marriage.", "audio": "https://www.soundjay.com/misc/sounds/traditional-music.mp3" },
+      { "title": "Teej", "image": "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=300&h=200&fit=crop", "description": "Monsoon festival with swings, sweets, and women in green attire.", "audio": "https://www.soundjay.com/misc/sounds/folk-music.mp3" },
+      { "title": "Pushkar Fair", "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop", "description": "World-famous camel and livestock fair held annually.", "audio": "https://www.soundjay.com/misc/sounds/camel-fair.mp3" },
+      { "title": "Mewar Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Celebrated in Udaipur marking the arrival of spring.", "audio": "https://www.soundjay.com/misc/sounds/spring-festival.mp3" }
+    ],
+    "Art": [
+      { "title": "Kathputli Puppetry", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional Rajasthani puppet shows depicting folklore.", "audio": "https://www.soundjay.com/misc/sounds/puppet-show.mp3" },
+      { "title": "Miniature Painting", "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1267?w=300&h=200&fit=crop", "description": "Detailed and colorful paintings from Mughal influence.", "audio": "https://www.soundjay.com/misc/sounds/art-gallery.mp3" },
+      { "title": "Blue Pottery", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Unique Jaipur pottery style with Persian glaze technique.", "audio": "https://www.soundjay.com/misc/sounds/crafting.mp3" },
+      { "title": "Pichwai Paintings", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Devotional paintings of Lord Krishna.", "audio": "https://www.soundjay.com/misc/sounds/devotional.mp3" },
+      { "title": "Bandhani Tie-Dye", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Colorful textile art using tie and dye techniques.", "audio": "https://www.soundjay.com/misc/sounds/textile-work.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Hawa Mahal", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Palace of Winds in Jaipur with 953 windows.", "audio": "https://www.soundjay.com/misc/sounds/palace-ambience.mp3" },
+      { "title": "Mehrangarh Fort", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "One of India's largest forts in Jodhpur.", "audio": "https://www.soundjay.com/misc/sounds/fort-ambience.mp3" },
+      { "title": "Jaisalmer Fort", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Golden Fort made of yellow sandstone.", "audio": "https://www.soundjay.com/misc/sounds/desert-fort.mp3" },
+      { "title": "City Palace", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "A royal complex in Udaipur with museums.", "audio": "https://www.soundjay.com/misc/sounds/palace-music.mp3" },
+      { "title": "Dilwara Temples", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Exquisite Jain temples carved in marble.", "audio": "https://www.soundjay.com/misc/sounds/temple-bells.mp3" }
+    ]
+  },
+  "Punjab": {
+    "Festivals": [
+      { "title": "Baisakhi", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Harvest festival marking the Punjabi New Year.", "audio": "https://www.soundjay.com/misc/sounds/baisakhi-music.mp3" },
+      { "title": "Lohri", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Winter solstice festival with bonfires and folk songs.", "audio": "https://www.soundjay.com/misc/sounds/lohri-songs.mp3" },
+      { "title": "Gurpurab", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Sikh religious festivals celebrating Guru's birthdays.", "audio": "https://www.soundjay.com/misc/sounds/gurbani.mp3" },
+      { "title": "Teej", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Monsoon festival with traditional dances and songs.", "audio": "https://www.soundjay.com/misc/sounds/teej-music.mp3" },
+      { "title": "Karva Chauth", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Women's festival of fasting for husband's longevity.", "audio": "https://www.soundjay.com/misc/sounds/karva-chauth.mp3" }
+    ],
+    "Art": [
+      { "title": "Phulkari Embroidery", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional Punjabi embroidery with vibrant floral patterns.", "audio": "https://www.soundjay.com/misc/sounds/embroidery-work.mp3" },
+      { "title": "Punjabi Folk Music", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Rich musical tradition with dhol, tumbi, and harmonium.", "audio": "https://www.soundjay.com/misc/sounds/punjabi-folk.mp3" },
+      { "title": "Bhangra Dance", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Energetic folk dance performed during harvest season.", "audio": "https://www.soundjay.com/misc/sounds/bhangra-beat.mp3" },
+      { "title": "Punjabi Literature", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Rich literary tradition with poetry and prose.", "audio": "https://www.soundjay.com/misc/sounds/poetry-recitation.mp3" },
+      { "title": "Wood Carving", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Intricate wooden furniture and decorative items.", "audio": "https://www.soundjay.com/misc/sounds/wood-carving.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Golden Temple", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Sacred Sikh shrine in Amritsar with golden dome.", "audio": "https://www.soundjay.com/misc/sounds/golden-temple.mp3" },
+      { "title": "Jallianwala Bagh", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Memorial garden commemorating the 1919 massacre.", "audio": "https://www.soundjay.com/misc/sounds/memorial-silence.mp3" },
+      { "title": "Wagah Border", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Famous border ceremony between India and Pakistan.", "audio": "https://www.soundjay.com/misc/sounds/border-ceremony.mp3" },
+      { "title": "Anandpur Sahib", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Holy city where Khalsa was founded by Guru Gobind Singh.", "audio": "https://www.soundjay.com/misc/sounds/anandpur-sahib.mp3" },
+      { "title": "Qila Mubarak", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Ancient fort in Bathinda with historical significance.", "audio": "https://www.soundjay.com/misc/sounds/fort-history.mp3" }
+    ]
+  },
+  "Kerala": {
+    "Festivals": [
+      { "title": "Onam", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Harvest festival with boat races, dance, and grand feasts.", "audio": "https://www.soundjay.com/misc/sounds/onam-music.mp3" },
+      { "title": "Vishu", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "New Year festival with traditional rituals and fireworks.", "audio": "https://www.soundjay.com/misc/sounds/vishu-celebration.mp3" },
+      { "title": "Thrissur Pooram", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Grand temple festival with elephant processions.", "audio": "https://www.soundjay.com/misc/sounds/pooram-drums.mp3" },
+      { "title": "Theyyam", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Ancient ritual dance form performed in temples.", "audio": "https://www.soundjay.com/misc/sounds/theyyam-ritual.mp3" },
+      { "title": "Kerala Boat Race", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional snake boat races on backwaters.", "audio": "https://www.soundjay.com/misc/sounds/boat-race.mp3" }
+    ],
+    "Art": [
+      { "title": "Kathakali", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Classical dance-drama with elaborate costumes and makeup.", "audio": "https://www.soundjay.com/misc/sounds/kathakali-music.mp3" },
+      { "title": "Mohiniyattam", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Graceful classical dance form of Kerala.", "audio": "https://www.soundjay.com/misc/sounds/mohiniyattam.mp3" },
+      { "title": "Kalaripayattu", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Ancient martial art form from Kerala.", "audio": "https://www.soundjay.com/misc/sounds/kalaripayattu.mp3" },
+      { "title": "Coir Craft", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional handicraft using coconut fiber.", "audio": "https://www.soundjay.com/misc/sounds/craft-work.mp3" },
+      { "title": "Mural Painting", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional wall paintings depicting mythology.", "audio": "https://www.soundjay.com/misc/sounds/mural-painting.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Padmanabhaswamy Temple", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Famous temple in Thiruvananthapuram with Dravidian architecture.", "audio": "https://www.soundjay.com/misc/sounds/temple-bells.mp3" },
+      { "title": "Mattancherry Palace", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Dutch Palace in Kochi with beautiful murals.", "audio": "https://www.soundjay.com/misc/sounds/palace-ambience.mp3" },
+      { "title": "Bekal Fort", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Largest fort in Kerala overlooking the Arabian Sea.", "audio": "https://www.soundjay.com/misc/sounds/fort-waves.mp3" },
+      { "title": "Hill Palace", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Largest archaeological museum in Kerala.", "audio": "https://www.soundjay.com/misc/sounds/museum-ambience.mp3" },
+      { "title": "Krishnapuram Palace", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Historic palace with the famous Gajendra Moksham mural.", "audio": "https://www.soundjay.com/misc/sounds/palace-history.mp3" }
+    ]
+  },
+  "Karnataka": {
+    "Festivals": [
+      { "title": "Dasara", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Mysore's grand festival with royal processions and illuminations.", "audio": "https://www.soundjay.com/misc/sounds/dasara-music.mp3" },
+      { "title": "Karva Chauth", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Women's festival celebrated across Karnataka.", "audio": "https://www.soundjay.com/misc/sounds/karva-chauth.mp3" },
+      { "title": "Ugadi", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Kannada New Year with traditional rituals and feasts.", "audio": "https://www.soundjay.com/misc/sounds/ugadi-celebration.mp3" },
+      { "title": "Hampi Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Cultural festival celebrating Hampi's heritage.", "audio": "https://www.soundjay.com/misc/sounds/hampi-festival.mp3" },
+      { "title": "Kambala", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional buffalo race in coastal Karnataka.", "audio": "https://www.soundjay.com/misc/sounds/kambala-race.mp3" }
+    ],
+    "Art": [
+      { "title": "Yakshagana", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional dance-drama with elaborate costumes.", "audio": "https://www.soundjay.com/misc/sounds/yakshagana.mp3" },
+      { "title": "Bharatanatyam", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Classical dance form with intricate footwork.", "audio": "https://www.soundjay.com/misc/sounds/bharatanatyam.mp3" },
+      { "title": "Mysore Painting", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional painting style with gold leaf work.", "audio": "https://www.soundjay.com/misc/sounds/mysore-painting.mp3" },
+      { "title": "Channapatna Toys", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional wooden toys with natural dyes.", "audio": "https://www.soundjay.com/misc/sounds/toy-making.mp3" },
+      { "title": "Sandalwood Carving", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Intricate carvings from fragrant sandalwood.", "audio": "https://www.soundjay.com/misc/sounds/sandalwood-carving.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Hampi", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "UNESCO World Heritage site with ancient ruins.", "audio": "https://www.soundjay.com/misc/sounds/hampi-ruins.mp3" },
+      { "title": "Mysore Palace", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Magnificent royal palace with Indo-Saracenic architecture.", "audio": "https://www.soundjay.com/misc/sounds/mysore-palace.mp3" },
+      { "title": "Gol Gumbaz", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Famous dome with whispering gallery in Bijapur.", "audio": "https://www.soundjay.com/misc/sounds/gol-gumbaz.mp3" },
+      { "title": "Charminar", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Iconic monument in Hyderabad with four minarets.", "audio": "https://www.soundjay.com/misc/sounds/charminar.mp3" },
+      { "title": "Belur and Halebid", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Twin temple complexes with Hoysala architecture.", "audio": "https://www.soundjay.com/misc/sounds/hoysala-temples.mp3" }
+    ]
+  },
+  "Maharashtra": {
+    "Festivals": [
+      { "title": "Ganesh Chaturthi", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Grand festival celebrating Lord Ganesha with processions.", "audio": "https://www.soundjay.com/misc/sounds/ganesh-chaturthi.mp3" },
+      { "title": "Gudi Padwa", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Maharashtrian New Year with traditional decorations.", "audio": "https://www.soundjay.com/misc/sounds/gudi-padwa.mp3" },
+      { "title": "Pola", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Festival honoring bulls and agricultural implements.", "audio": "https://www.soundjay.com/misc/sounds/pola-festival.mp3" },
+      { "title": "Lavani Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional folk dance and music festival.", "audio": "https://www.soundjay.com/misc/sounds/lavani-music.mp3" },
+      { "title": "Kojagiri Purnima", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Harvest festival with full moon celebrations.", "audio": "https://www.soundjay.com/misc/sounds/kojagiri.mp3" }
+    ],
+    "Art": [
+      { "title": "Lavani", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional folk dance with energetic movements.", "audio": "https://www.soundjay.com/misc/sounds/lavani-dance.mp3" },
+      { "title": "Warli Painting", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Tribal art form with geometric patterns and white paint.", "audio": "https://www.soundjay.com/misc/sounds/warli-painting.mp3" },
+      { "title": "Paithani Sarees", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Luxurious silk sarees with intricate zari work.", "audio": "https://www.soundjay.com/misc/sounds/paithani-weaving.mp3" },
+      { "title": "Kolhapuri Chappals", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional leather footwear from Kolhapur.", "audio": "https://www.soundjay.com/misc/sounds/kolhapuri-craft.mp3" },
+      { "title": "Gond Art", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Tribal art with nature-inspired motifs and bright colors.", "audio": "https://www.soundjay.com/misc/sounds/gond-art.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Gateway of India", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Iconic arch monument in Mumbai overlooking the Arabian Sea.", "audio": "https://www.soundjay.com/misc/sounds/gateway-india.mp3" },
+      { "title": "Ajanta and Ellora Caves", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "UNESCO World Heritage sites with ancient rock-cut caves.", "audio": "https://www.soundjay.com/misc/sounds/ajanta-ellora.mp3" },
+      { "title": "Shaniwar Wada", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Historic fort palace of the Peshwas in Pune.", "audio": "https://www.soundjay.com/misc/sounds/shaniwar-wada.mp3" },
+      { "title": "Bibi Ka Maqbara", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Mini Taj Mahal in Aurangabad built by Aurangzeb.", "audio": "https://www.soundjay.com/misc/sounds/bibi-ka-maqbara.mp3" },
+      { "title": "Siddhivinayak Temple", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Famous Ganesha temple in Mumbai.", "audio": "https://www.soundjay.com/misc/sounds/siddhivinayak.mp3" }
+    ]
+  },
+  "Goa": {
+    "Festivals": [
+      { "title": "Carnival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Colorful festival with parades, music, and dance.", "audio": "https://www.soundjay.com/misc/sounds/goa-carnival.mp3" },
+      { "title": "Shigmo", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Spring festival with folk dances and processions.", "audio": "https://www.soundjay.com/misc/sounds/shigmo-festival.mp3" },
+      { "title": "Feast of St. Francis Xavier", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Religious festival honoring the patron saint of Goa.", "audio": "https://www.soundjay.com/misc/sounds/st-francis-xavier.mp3" },
+      { "title": "Bonderam", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Flag festival on Divar Island with mock battles.", "audio": "https://www.soundjay.com/misc/sounds/bonderam.mp3" },
+      { "title": "Ganesh Chaturthi", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Celebration of Lord Ganesha with Goan traditions.", "audio": "https://www.soundjay.com/misc/sounds/goa-ganesh.mp3" }
+    ],
+    "Art": [
+      { "title": "Fugdi Dance", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional Goan folk dance performed by women.", "audio": "https://www.soundjay.com/misc/sounds/fugdi-dance.mp3" },
+      { "title": "Dekhni", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Classical Goan dance form with Portuguese influence.", "audio": "https://www.soundjay.com/misc/sounds/dekhni.mp3" },
+      { "title": "Azulejos Tiles", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Portuguese ceramic tiles with blue and white patterns.", "audio": "https://www.soundjay.com/misc/sounds/azulejos.mp3" },
+      { "title": "Bamboo Craft", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional handicrafts made from bamboo.", "audio": "https://www.soundjay.com/misc/sounds/bamboo-craft.mp3" },
+      { "title": "Coconut Shell Craft", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Decorative items made from coconut shells.", "audio": "https://www.soundjay.com/misc/sounds/coconut-craft.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Basilica of Bom Jesus", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "UNESCO World Heritage site with St. Francis Xavier's relics.", "audio": "https://www.soundjay.com/misc/sounds/basilica-bom-jesus.mp3" },
+      { "title": "Se Cathedral", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Largest church in Asia with Portuguese architecture.", "audio": "https://www.soundjay.com/misc/sounds/se-cathedral.mp3" },
+      { "title": "Fort Aguada", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "17th-century Portuguese fort overlooking the Arabian Sea.", "audio": "https://www.soundjay.com/misc/sounds/fort-aguada.mp3" },
+      { "title": "Chapora Fort", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Famous fort ruins with scenic views of Vagator beach.", "audio": "https://www.soundjay.com/misc/sounds/chapora-fort.mp3" },
+      { "title": "Reis Magos Fort", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "16th-century fort converted into a heritage hotel.", "audio": "https://www.soundjay.com/misc/sounds/reis-magos.mp3" }
+    ]
+  },
+  "Tamil Nadu": {
+    "Festivals": [
+      { "title": "Pongal", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Harvest festival with traditional cooking and celebrations.", "audio": "https://www.soundjay.com/misc/sounds/pongal-music.mp3" },
+      { "title": "Jallikattu", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional bull-taming sport during Pongal.", "audio": "https://www.soundjay.com/misc/sounds/jallikattu.mp3" },
+      { "title": "Thaipusam", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Religious festival with elaborate processions and rituals.", "audio": "https://www.soundjay.com/misc/sounds/thaipusam.mp3" },
+      { "title": "Karthigai Deepam", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Festival of lights celebrated in temples.", "audio": "https://www.soundjay.com/misc/sounds/karthigai-deepam.mp3" },
+      { "title": "Natyanjali", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Dance festival dedicated to Lord Nataraja in Chidambaram.", "audio": "https://www.soundjay.com/misc/sounds/natyanjali.mp3" }
+    ],
+    "Art": [
+      { "title": "Bharatanatyam", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Classical dance form originating from Tamil Nadu temples.", "audio": "https://www.soundjay.com/misc/sounds/bharatanatyam-classical.mp3" },
+      { "title": "Carnatic Music", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Classical music tradition with intricate ragas and talas.", "audio": "https://www.soundjay.com/misc/sounds/carnatic-music.mp3" },
+      { "title": "Tanjore Painting", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional painting style with gold leaf and gemstones.", "audio": "https://www.soundjay.com/misc/sounds/tanjore-painting.mp3" },
+      { "title": "Temple Architecture", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Dravidian style temples with towering gopurams.", "audio": "https://www.soundjay.com/misc/sounds/temple-architecture.mp3" },
+      { "title": "Silk Weaving", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional Kanjeevaram silk saree weaving.", "audio": "https://www.soundjay.com/misc/sounds/silk-weaving.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Meenakshi Temple", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Famous temple in Madurai with colorful gopurams.", "audio": "https://www.soundjay.com/misc/sounds/meenakshi-temple.mp3" },
+      { "title": "Brihadeshwara Temple", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "UNESCO World Heritage site in Thanjavur.", "audio": "https://www.soundjay.com/misc/sounds/brihadeshwara.mp3" },
+      { "title": "Mahabalipuram", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "UNESCO site with rock-cut temples and sculptures.", "audio": "https://www.soundjay.com/misc/sounds/mahabalipuram.mp3" },
+      { "title": "Rameshwaram Temple", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Sacred temple dedicated to Lord Shiva.", "audio": "https://www.soundjay.com/misc/sounds/rameshwaram.mp3" },
+      { "title": "Chidambaram Temple", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Famous temple of Lord Nataraja (dancing Shiva).", "audio": "https://www.soundjay.com/misc/sounds/chidambaram.mp3" }
+    ]
+  },
+  "Gujarat": {
+    "Festivals": [
+      { "title": "Navratri", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Nine nights of dance and devotion celebrating Goddess Durga.", "audio": "https://www.soundjay.com/misc/sounds/navratri-garba.mp3" },
+      { "title": "Uttarayan", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Kite flying festival marking the transition to longer days.", "audio": "https://www.soundjay.com/misc/sounds/kite-festival.mp3" },
+      { "title": "Rann Utsav", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Desert festival in the white salt desert of Kutch.", "audio": "https://www.soundjay.com/misc/sounds/rann-utsav.mp3" },
+      { "title": "Modhera Dance Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Classical dance festival at the Sun Temple in Modhera.", "audio": "https://www.soundjay.com/misc/sounds/modhera-dance.mp3" },
+      { "title": "Bhavai", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional folk theatre form of Gujarat.", "audio": "https://www.soundjay.com/misc/sounds/bhavai.mp3" }
+    ],
+    "Art": [
+      { "title": "Garba Dance", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional circular dance performed during Navratri.", "audio": "https://www.soundjay.com/misc/sounds/garba-dance.mp3" },
+      { "title": "Patola Weaving", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Double ikat silk weaving technique from Patan.", "audio": "https://www.soundjay.com/misc/sounds/patola-weaving.mp3" },
+      { "title": "Kutch Embroidery", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Intricate hand embroidery from Kutch region.", "audio": "https://www.soundjay.com/misc/sounds/kutch-embroidery.mp3" },
+      { "title": "Wood Carving", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional wooden furniture and decorative items.", "audio": "https://www.soundjay.com/misc/sounds/wood-carving.mp3" },
+      { "title": "Clay Pottery", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional terracotta pottery and sculptures.", "audio": "https://www.soundjay.com/misc/sounds/clay-pottery.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Sabarmati Ashram", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Historic ashram where Mahatma Gandhi lived and worked.", "audio": "https://www.soundjay.com/misc/sounds/sabarmati-ashram.mp3" },
+      { "title": "Sun Temple Modhera", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "11th-century temple dedicated to the Sun God.", "audio": "https://www.soundjay.com/misc/sounds/sun-temple.mp3" },
+      { "title": "Rani Ki Vav", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "UNESCO World Heritage stepwell in Patan.", "audio": "https://www.soundjay.com/misc/sounds/rani-ki-vav.mp3" },
+      { "title": "Champaner-Pavagadh", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "UNESCO World Heritage archaeological park.", "audio": "https://www.soundjay.com/misc/sounds/champaner.mp3" },
+      { "title": "Dwarkadhish Temple", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Ancient temple dedicated to Lord Krishna in Dwarka.", "audio": "https://www.soundjay.com/misc/sounds/dwarkadhish.mp3" }
+    ]
+  },
+  "Madhya Pradesh": {
+    "Festivals": [
+      { "title": "Khajuraho Dance Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Classical dance festival at the famous Khajuraho temples.", "audio": "https://www.soundjay.com/misc/sounds/khajuraho-dance.mp3" },
+      { "title": "Tansen Music Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Classical music festival honoring Tansen in Gwalior.", "audio": "https://www.soundjay.com/misc/sounds/tansen-music.mp3" },
+      { "title": "Lokrang Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Folk dance and music festival showcasing tribal culture.", "audio": "https://www.soundjay.com/misc/sounds/lokrang.mp3" },
+      { "title": "Bhopal Utsav", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Cultural festival celebrating the heritage of Bhopal.", "audio": "https://www.soundjay.com/misc/sounds/bhopal-utsav.mp3" },
+      { "title": "Mandu Festival", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Heritage festival at the historic city of Mandu.", "audio": "https://www.soundjay.com/misc/sounds/mandu-festival.mp3" }
+    ],
+    "Art": [
+      { "title": "Gond Art", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Tribal art with nature-inspired motifs and bright colors.", "audio": "https://www.soundjay.com/misc/sounds/gond-art.mp3" },
+      { "title": "Bagh Print", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional block printing technique from Bagh.", "audio": "https://www.soundjay.com/misc/sounds/bagh-print.mp3" },
+      { "title": "Chanderi Sarees", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Luxurious silk sarees with intricate zari work.", "audio": "https://www.soundjay.com/misc/sounds/chanderi-sarees.mp3" },
+      { "title": "Maheshwari Sarees", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional cotton and silk sarees from Maheshwar.", "audio": "https://www.soundjay.com/misc/sounds/maheshwari-sarees.mp3" },
+      { "title": "Bamboo Craft", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Traditional handicrafts made from bamboo.", "audio": "https://www.soundjay.com/misc/sounds/bamboo-craft.mp3" }
+    ],
+    "Monuments": [
+      { "title": "Khajuraho Temples", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "UNESCO World Heritage site with erotic sculptures.", "audio": "https://www.soundjay.com/misc/sounds/khajuraho-temples.mp3" },
+      { "title": "Sanchi Stupa", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Ancient Buddhist stupa and UNESCO World Heritage site.", "audio": "https://www.soundjay.com/misc/sounds/sanchi-stupa.mp3" },
+      { "title": "Gwalior Fort", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Historic fort with palaces and temples.", "audio": "https://www.soundjay.com/misc/sounds/gwalior-fort.mp3" },
+      { "title": "Orchha Fort", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Medieval fort complex with palaces and temples.", "audio": "https://www.soundjay.com/misc/sounds/orchha-fort.mp3" },
+      { "title": "Mandu Fort", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop", "description": "Historic fortified city with Afghan architecture.", "audio": "https://www.soundjay.com/misc/sounds/mandu-fort.mp3" }
+    ]
+  }
+}
