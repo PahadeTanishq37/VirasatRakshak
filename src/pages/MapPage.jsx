@@ -2,9 +2,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, ArrowRight, Search, X, Navigation2, Landmark, Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useState, useRef, useEffect } from 'react'
+import { api } from '../services/api'
 
-const HERITAGE_PLACES = [
+const HERITAGE_PLACES_STATIC = [
   { name: 'Taj Mahal', state: 'Uttar Pradesh', region: 'north', type: 'monument', icon: '🕌' },
   { name: 'Hampi', state: 'Karnataka', region: 'south', type: 'monument', icon: '🏛️' },
   { name: 'Varanasi Ghats', state: 'Uttar Pradesh', region: 'north', type: 'heritage', icon: '🪔' },
@@ -33,10 +33,24 @@ export const MapPage = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [selectedPlace, setSelectedPlace] = useState(null)
+  const [heritagePlaces, setHeritagePlaces] = useState(HERITAGE_PLACES_STATIC)
   const searchRef = useRef(null)
 
+  useEffect(() => {
+    // Fetch dynamic heritage sites from Backend API foundation
+    api.heritage.getAll()
+      .then(res => {
+        if (res && res.success && Array.isArray(res.data) && res.data.length > 0) {
+          setHeritagePlaces(res.data)
+        }
+      })
+      .catch(err => {
+        console.warn('Backend API unavailable, using local heritage data fallback:', err.message)
+      })
+  }, [])
+
   const filteredPlaces = searchQuery.length > 1
-    ? HERITAGE_PLACES.filter(p =>
+    ? heritagePlaces.filter(p =>
         p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.state.toLowerCase().includes(searchQuery.toLowerCase())
       )
