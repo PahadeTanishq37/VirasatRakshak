@@ -296,26 +296,56 @@ export const MapPage = () => {
                       <span style={{ textTransform: 'capitalize' }}>{selectedPlace.type}</span>
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleRegionClick(selectedPlace.region)}
-                    style={{
-                      background: 'linear-gradient(135deg, #E76F2A, #F4A623)',
-                      color: '#fff',
-                      border: 'none',
-                      borderRadius: '10px',
-                      padding: '8px 16px',
-                      fontSize: '13px',
-                      fontWeight: '700',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    <Landmark style={{ width: '14px', height: '14px' }} />
-                    Explore Region
-                  </button>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button
+                      onClick={() => {
+                        const artifactMap = {
+                          'Taj Mahal': 'taj-mahal-dome',
+                          'Hampi': 'hampi-chariot',
+                          'Konark Sun Temple': 'konark-sun-temple',
+                          'Qutub Minar': 'ashoka-pillar'
+                        }
+                        const targetId = artifactMap[selectedPlace.name] || 'konark-sun-temple'
+                        navigate(`/artifacts/${targetId}`)
+                      }}
+                      style={{
+                        background: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: '10px',
+                        padding: '8px 14px',
+                        fontSize: '13px',
+                        fontWeight: '700',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      📦 View in 3D
+                    </button>
+                    <button
+                      onClick={() => handleRegionClick(selectedPlace.region)}
+                      style={{
+                        background: 'linear-gradient(135deg, #E76F2A, #F4A623)',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: '10px',
+                        padding: '8px 16px',
+                        fontSize: '13px',
+                        fontWeight: '700',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      <Landmark style={{ width: '14px', height: '14px' }} />
+                      Explore Region
+                    </button>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>

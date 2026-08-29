@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { MapPin, BookOpen, Camera, ArrowRight } from 'lucide-react'
+import { MapPin, BookOpen, Camera, ArrowRight, Box } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export const HomePage = () => {
@@ -13,6 +13,13 @@ export const HomePage = () => {
       description: t('homepage.features.map.description'),
       color: 'from-saffron-500 to-saffron-600',
       link: '/map'
+    },
+    {
+      icon: Box,
+      title: '3D Heritage Artifact Verse',
+      description: 'Interact with 3D models of iconic temples, pillars, stupas, and ancient Indian sculptures using Three.js.',
+      color: 'from-marigold-500 to-saffron-600',
+      link: '/artifacts'
     },
     {
       icon: BookOpen,
@@ -108,7 +115,7 @@ export const HomePage = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon
               return (

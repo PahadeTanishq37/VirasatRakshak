@@ -12,6 +12,7 @@ import { MarketplacePage } from './pages/MarketplacePage'
 import { PackagesPage } from './pages/PackagesPage'
 import { PackageDestinationPage } from './pages/PackageDestinationPage'
 import { CommunityPage } from './pages/CommunityPage'
+import { ArtifactsPage } from './pages/ArtifactsPage'
 
 function PageTransitions() {
   const location = useLocation()
@@ -40,6 +41,8 @@ function PageTransitions() {
           <Route path="/story" element={<StoryPage />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/ar" element={<ARPage />} />
+          <Route path="/artifacts" element={<ArtifactsPage />} />
+          <Route path="/artifacts/:artifactId" element={<ArtifactsPage />} />
           <Route path="/marketplace" element={<MarketplacePage />} />
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/packages" element={<PackagesPage />} />
