@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, Clock, Car, Building2, ShoppingBag, X, Star } from 'lucide-react'
 
+import { pdfService } from '../services/pdfService'
+
 const DEST_META = {
   shirdi: { title: "Shirdi Heritage Tour", media: 'https://drive.google.com/uc?export=view&id=1yMyOSvVcuwztUv2kWgM5PwzvN0mfkxiC' }
 }
@@ -16,6 +18,7 @@ export const PackageDestinationPage = () => {
   const [cab, setCab] = useState('sedan')
   const [cultural, setCultural] = useState({ bazaar: false, folk: false, streetfood: false })
   const [showSuccess, setShowSuccess] = useState(false)
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
 
   const basePrice = 8999
   const addonsPrice = (addons.meals ? 999 : 0) + (addons.guide ? 1199 : 0) + (addons.festival ? 1999 : 0) + (addons.premiumCar ? 1499 : 0)
@@ -23,6 +26,35 @@ export const PackageDestinationPage = () => {
   const cabPrice = cab === 'sedan' ? 0 : cab === 'suv' ? 1200 : 3500
   const culturalPrice = (cultural.bazaar ? 299 : 0) + (cultural.folk ? 799 : 0) + (cultural.streetfood ? 499 : 0)
   const total = basePrice + addonsPrice + hotelPrice + cabPrice + culturalPrice
+
+  const handleDownloadPDF = async () => {
+    if (isGeneratingPDF) return
+    setIsGeneratingPDF(true)
+    try {
+      await pdfService.generateTourPDF({
+        title: meta.title,
+        destination: destination ? destination.toUpperCase() : 'Shirdi',
+        duration: '2N / 3D',
+        stay: `${hotel.charAt(0).toUpperCase() + hotel.slice(1)} Hotel`,
+        cab: `${cab.toUpperCase()} Vehicle`,
+        basePrice,
+        hotelPrice,
+        cabPrice,
+        addonsPrice,
+        culturalPrice,
+        totalAmount: total,
+        itinerary: [
+          { day: 'Day 1', title: 'Pickup & Shirdi Arrival', items: ['Pickup from city center', 'Visit to Shirdi Sai Baba Temple, Khandoba Mandir, Baba Chavadi', 'Evening Aarti'] },
+          { day: 'Day 2', title: 'Guided Temple & Shrine Excursion', items: ['Priority Darshan at Shirdi with Dedicated Panditji', 'Visit to Shani Shingnapur', 'Spiritual Discourse'] },
+          { day: 'Day 3', title: 'Local Cultural Bazaar Walk', items: ['Prasadalaya visit & local handicrafts market', 'Drop-off at city station/airport'] }
+        ]
+      })
+    } catch (e) {
+      alert('Unable to generate PDF. Please try again.')
+    } finally {
+      setIsGeneratingPDF(false)
+    }
+  }
 
   const timeline = useMemo(() => ([
     { day: 'Day 1', title: 'Pickup, Check-in & Evening Temple Visit', note: 'Soak in the spiritual aura with evening aarti.', image: '/tajmahal.jpg' },
@@ -148,7 +180,13 @@ export const PackageDestinationPage = () => {
               </div>
               <div className="grid grid-cols-1 gap-3 mt-4">
                 <button className="bg-gradient-to-r from-teal-500 to-sky-600 text-white rounded-lg px-4 py-2 hover:opacity-90 active:scale-[0.99] transition" onClick={() => setShowSuccess(true)}>Book Now</button>
-                <button className="btn-secondary" onClick={() => window.print()}>Download PDF</button>
+                <button
+                  className="btn-secondary flex items-center justify-center space-x-2 disabled:opacity-60"
+                  onClick={handleDownloadPDF}
+                  disabled={isGeneratingPDF}
+                >
+                  {isGeneratingPDF ? 'Generating PDF...' : 'Download PDF'}
+                </button>
               </div>
             </div>
           </div>

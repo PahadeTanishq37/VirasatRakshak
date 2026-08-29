@@ -5,6 +5,7 @@ import {
   BookOpen, Landmark, Calendar, MapPin, Info, X, Sparkles, Compass, Eye 
 } from 'lucide-react';
 import { offlinePackService } from '../services/offlinePackService';
+import { pdfService } from '../services/pdfService';
 
 const AVAILABLE_HERITAGE_SITES = [
   {
@@ -521,11 +522,28 @@ export const OfflineTourPage = () => {
               </div>
 
               {/* Modal Footer */}
-              <div className="p-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between text-xs text-gray-500">
+              <div className="p-4 bg-gray-50 border-t border-gray-200 flex flex-wrap items-center justify-between gap-3 text-xs text-gray-500">
                 <span>Version {activePackModal.version} • Size: {activePackModal.estimatedSize}</span>
-                <button onClick={() => setActivePackModal(null)} className="btn-primary text-xs px-5 py-2">
-                  Close Offline Guide
-                </button>
+                
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={async () => {
+                      try {
+                        await pdfService.generateHeritagePDF(activePackModal);
+                      } catch (e) {
+                        alert('Unable to generate Heritage PDF.');
+                      }
+                    }}
+                    className="btn-secondary text-xs px-4 py-2 flex items-center space-x-1.5"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Export PDF Guide</span>
+                  </button>
+
+                  <button onClick={() => setActivePackModal(null)} className="btn-primary text-xs px-5 py-2">
+                    Close Guide
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
