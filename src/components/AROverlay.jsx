@@ -242,27 +242,27 @@ export const AROverlay = ({ selectedItem, isActive, onCapture, onClose, onSelect
 
             // Filter Configuration based on type
             let drawWidth = sm.width * 1.5;
-            let drawHeight = sm.height * 1.5;
+            let drawHeight = sm.height * 1.2;
             let offsetY = -sm.height * 0.45;
             let offsetX = -drawWidth / 2;
 
             const type = selectedItem.type;
             if (type === 'turban' || type === 'clothing') {
-              drawWidth = sm.width * 1.6;
-              drawHeight = sm.height * 1.2;
-              offsetY = -sm.height * 0.95; // Position above eyes on head/forehead
-            } else if (type === 'kathakali' || type === 'makeup') {
-              drawWidth = sm.width * 1.45;
-              drawHeight = sm.height * 1.55;
-              offsetY = -sm.height * 0.55; // Full face mask placement
-            } else if (type === 'saree') {
-              drawWidth = sm.width * 1.7;
-              drawHeight = sm.height * 1.4;
-              offsetY = -sm.height * 0.85; // Crown / Mukut style placement
-            } else if (type === 'jewelry') {
-              drawWidth = sm.width * 1.35;
+              drawWidth = sm.width * 1.55;
               drawHeight = sm.height * 1.1;
-              offsetY = sm.height * 0.25; // Necklace placement under chin
+              offsetY = -sm.height * 0.55; // Sits neatly on forehead and above head
+            } else if (type === 'kathakali' || type === 'makeup') {
+              drawWidth = sm.width * 1.4;
+              drawHeight = sm.height * 1.45;
+              offsetY = -sm.height * 0.45; // Full face mask placement
+            } else if (type === 'saree') {
+              drawWidth = sm.width * 1.6;
+              drawHeight = sm.height * 1.3;
+              offsetY = -sm.height * 0.65; // Crown / Mukut style placement
+            } else if (type === 'jewelry') {
+              drawWidth = sm.width * 1.3;
+              drawHeight = sm.height * 1.0;
+              offsetY = sm.height * 0.2; // Necklace placement under chin
             }
 
             offsetX = -drawWidth / 2;
@@ -368,7 +368,7 @@ export const AROverlay = ({ selectedItem, isActive, onCapture, onClose, onSelect
           {/* Video Stream */}
           <video
             ref={videoRef}
-            className="w-full h-full object-cover transform -scale-x-100"
+            className="w-full h-full object-contain transform -scale-x-100"
             autoPlay
             muted
             playsInline
@@ -377,7 +377,7 @@ export const AROverlay = ({ selectedItem, isActive, onCapture, onClose, onSelect
           {/* Canvas Overlay for Face Tracking */}
           <canvas
             ref={canvasRef}
-            className="absolute inset-0 w-full h-full pointer-events-none transform -scale-x-100"
+            className="absolute inset-0 w-full h-full object-contain pointer-events-none transform -scale-x-100"
           />
 
           {/* Loading Overlay */}
