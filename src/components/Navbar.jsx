@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, MapPin, BookOpen, Gamepad2, Camera, ShoppingBag, Home, Globe, Landmark, Users, Box } from 'lucide-react'
+import { Menu, X, MapPin, BookOpen, Gamepad2, Camera, ShoppingBag, Home, Globe, Landmark, Users, Box, Download } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export const Navbar = () => {
@@ -23,6 +23,7 @@ export const Navbar = () => {
     { name: '3D Artifacts', path: '/artifacts', icon: Box, isNew: true },
     { name: t('navbar.games'), path: '/games', icon: Gamepad2 },
     { name: t('navbar.ar'), path: '/ar', icon: Camera },
+    { name: 'Offline Packs', path: '/offline', icon: Download },
     { name: t('navbar.marketplace'), path: '/marketplace', icon: ShoppingBag },
     { name: 'Community', path: '/community', icon: Users },
     { name: 'Packaged Tours', path: '/packages', icon: Landmark },

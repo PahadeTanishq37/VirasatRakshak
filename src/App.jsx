@@ -14,6 +14,8 @@ import { PackageDestinationPage } from './pages/PackageDestinationPage'
 import { CommunityPage } from './pages/CommunityPage'
 import { ArtifactsPage } from './pages/ArtifactsPage'
 
+import { OfflineTourPage } from './pages/OfflineTourPage'
+
 function PageTransitions() {
   const location = useLocation()
   const prefersReducedMotion = useReducedMotion()
@@ -47,6 +49,7 @@ function PageTransitions() {
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/packages" element={<PackagesPage />} />
           <Route path="/packages/:destination" element={<PackageDestinationPage />} />
+          <Route path="/offline" element={<OfflineTourPage />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
