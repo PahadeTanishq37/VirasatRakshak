@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ShoppingBag, Search, Filter, Heart, Star, ShoppingCart, Eye, MapPin, Clock, User, Award, BadgeCheck, Gift, PackagePlus, Play, Link as LinkIcon, BookOpen } from 'lucide-react'
+import { ShoppingBag, Search, Filter, Heart, Star, ShoppingCart, Eye, MapPin, Clock, User, Award, BadgeCheck, Gift, PackagePlus, Play, Link as LinkIcon, BookOpen, Package } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { cartService } from '../services/cartService'
+import CartCheckoutModal from '../components/CartCheckoutModal'
+import MyOrdersModal from '../components/MyOrdersModal'
 
 export const MarketplacePage = () => {
   const { t } = useTranslation()
@@ -13,8 +16,10 @@ export const MarketplacePage = () => {
   const [filterCategory, setFilterCategory] = useState('all')
   const [filterState, setFilterState] = useState('all')
   const [filterPrice, setFilterPrice] = useState('all')
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState(() => cartService.getItems())
   const [sortBy, setSortBy] = useState('featured')
+  const [showCartModal, setShowCartModal] = useState(false)
+  const [showOrdersModal, setShowOrdersModal] = useState(false)
   const [impact, setImpact] = useState(() => {
     try {
       const raw = localStorage.getItem('impact:summary')
@@ -23,6 +28,22 @@ export const MarketplacePage = () => {
       return { artisans: 0, states: 0 }
     }
   })
+
+  const cartCount = cartService.getTotalQuantity(cartItems)
+
+  const addToCart = (product) => {
+    const newItems = cartService.addItem(product)
+    setCartItems(newItems)
+    setImpact(prev => {
+      const next = { artisans: prev.artisans + 1, states: Math.max(prev.states, 1) }
+      try { localStorage.setItem('impact:summary', JSON.stringify(next)) } catch {}
+      return next
+    })
+  }
+
+  const handleCartChange = (newItems) => {
+    setCartItems(newItems)
+  }
 
   const products = [
     {
@@ -375,19 +396,6 @@ export const MarketplacePage = () => {
     }
   })
 
-  const addToCart = (product) => {
-    setCartItems(prev => [...prev, product])
-    // Impact tracking: increment artisans supported and states count
-    setImpact(prev => {
-      const next = {
-        artisans: prev.artisans + 1,
-        states: new Set([...Array.from({length: prev.states}).map(()=>'x'), product.state]).size // placeholder to force change
-      }
-      try { localStorage.setItem('impact:summary', JSON.stringify({ artisans: next.artisans, states: Math.max(prev.states, 1) })) } catch {}
-      return { artisans: next.artisans, states: Math.max(prev.states, 1) }
-    })
-  }
-
   // Helper: whether AR try-on available
   const supportsAR = (p) => ['jewelry', 'textiles'].includes(p.category) || /shawl/i.test(p.name)
 
@@ -524,26 +532,44 @@ export const MarketplacePage = () => {
         </motion.div>
 
         {/* Impact Tracker & Cart Summary */}
-        {(cartItems.length > 0 || impact.artisans > 0) && (
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="card p-4 mb-8 bg-gradient-to-r from-saffron-100 to-peacock-100"
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-6">
-                <div className="flex items-center space-x-2">
-                  <ShoppingCart className="w-5 h-5 text-saffron-600" />
-                  <span className="font-medium text-gray-900">{cartItems.length} items in cart</span>
-                </div>
-                <div className="text-sm text-gray-700">
-                  You’ve supported <span className="font-semibold">{impact.artisans}</span> artisans across <span className="font-semibold">{impact.states}</span> states.
-                </div>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="card p-4 mb-8 bg-gradient-to-r from-saffron-100 to-peacock-100"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-6">
+              <div className="flex items-center space-x-2">
+                <ShoppingCart className="w-5 h-5 text-saffron-600" />
+                <span className="font-medium text-gray-900">
+                  {cartCount > 0 ? `${cartCount} item${cartCount > 1 ? 's' : ''} in cart` : 'Cart is empty'}
+                </span>
               </div>
-              <button className="btn-primary">View Cart</button>
+              {impact.artisans > 0 && (
+                <div className="text-sm text-gray-700">
+                  Supporting <span className="font-semibold">{impact.artisans}</span> artisans.
+                </div>
+              )}
             </div>
-          </motion.div>
-        )}
+            <div className="flex items-center space-x-2">
+              <button
+                className="btn-secondary text-xs flex items-center space-x-1"
+                onClick={() => setShowOrdersModal(true)}
+              >
+                <Package className="w-3.5 h-3.5" />
+                <span>My Orders</span>
+              </button>
+              <button
+                className="btn-primary text-xs flex items-center space-x-1"
+                onClick={() => setShowCartModal(true)}
+                disabled={cartCount === 0}
+              >
+                <ShoppingCart className="w-3.5 h-3.5" />
+                <span>View Cart{cartCount > 0 ? ` (${cartCount})` : ''}</span>
+              </button>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
@@ -993,6 +1019,19 @@ export const MarketplacePage = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Cart & Checkout Modal */}
+      <CartCheckoutModal
+        isOpen={showCartModal}
+        onClose={() => setShowCartModal(false)}
+        onCartChange={handleCartChange}
+      />
+
+      {/* My Orders Modal */}
+      <MyOrdersModal
+        isOpen={showOrdersModal}
+        onClose={() => setShowOrdersModal(false)}
+      />
     </div>
   )
 }

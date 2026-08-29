@@ -4,6 +4,7 @@ import { config } from './config/env.js';
 import healthRoutes from './routes/health.routes.js';
 import heritageRoutes from './routes/heritage.routes.js';
 import aiRoutes from './routes/ai.routes.js';
+import orderRoutes from './routes/order.routes.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
@@ -35,8 +36,10 @@ app.use((req, res, next) => {
 app.use('/api', healthRoutes);
 app.use('/api', heritageRoutes);
 app.use('/api', aiRoutes);
+app.use('/api', orderRoutes);
 
 // Centralized API Error Handling Middleware
 app.use(errorHandler);
 
 export default app;
+
