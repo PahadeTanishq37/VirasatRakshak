@@ -615,6 +615,8 @@ export const ARPage = () => {
             isActive={isARActive}
             onCapture={handleCapturePhoto}
             onClose={handleCloseAR}
+            onSelectFilter={(item) => setSelectedItem(item)}
+            arItems={arItems}
           />
         )}
       </AnimatePresence>
