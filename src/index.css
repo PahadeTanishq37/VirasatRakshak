@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Removed invalid border-border utility */
+  * {
+    /* Add any global border styles here if needed */
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-saffron-50 via-white to-peacock-50 font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap bg-gradient-to-r from-peacock-500 to-peacock-600 hover:from-peacock-600 hover:to-peacock-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap bg-gradient-to-r from-marigold-400 to-marigold-500 hover:from-marigold-500 hover:to-marigold-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20;
+  }
+  
+  .hero-gradient {
+    @apply bg-gradient-to-br from-saffron-100 via-marigold-50 to-peacock-100;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-saffron-600 via-peacock-600 to-marigold-600 bg-clip-text text-transparent;
+  }
+  
+  .nav-link {
+    @apply text-gray-700 hover:text-saffron-600 font-medium transition-colors duration-200 relative;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-500 transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .active-nav-link {
+    @apply text-saffron-600 font-semibold;
+  }
+  
+  .active-nav-link::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+  
+  /* Cultural motif animations */
+  .animate-cultural-float {
+    animation: culturalFloat 8s ease-in-out infinite;
+  }
+  
+  .animate-mandala-spin {
+    animation: mandalaSpin 15s linear infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+}
+
+/* Custom keyframes for cultural animations */
+@keyframes culturalFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-15px) rotate(90deg); 
+  }
+  50% { 
+    transform: translateY(-30px) rotate(180deg); 
+  }
+  75% { 
+    transform: translateY(-15px) rotate(270deg); 
+  }
+}
+
+@keyframes mandalaSpin {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.3), 0 0 10px rgba(249, 115, 22, 0.2);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.6), 0 0 30px rgba(249, 115, 22, 0.4);
+    transform: scale(1.05);
+  }
+}

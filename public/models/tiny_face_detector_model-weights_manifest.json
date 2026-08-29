@@ -1,0 +1,19 @@
+{
+  "weightsManifest": [
+    {
+      "paths": ["tiny_face_detector_model-weights.bin"],
+      "weights": [
+        {
+          "name": "conv0/weights",
+          "shape": [3, 3, 3, 32],
+          "dtype": "float32"
+        },
+        {
+          "name": "conv0/bias",
+          "shape": [32],
+          "dtype": "float32"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<svg width="200" height="300" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="sareeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+<stop offset="50%" style="stop-color:#FF8E8E;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#FFB3B3;stop-opacity:1" />
+</linearGradient>
+<pattern id="sareePattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+<circle cx="10" cy="10" r="2" fill="#FFD700" opacity="0.8" />
+</pattern>
+</defs>
+<!-- Saree Main Body -->
+<path d="M50 50 L150 50 L140 280 L60 280 Z" fill="url(#sareeGrad)" />
+<!-- Saree Border -->
+<path d="M50 50 L150 50 L140 280 L60 280 Z" stroke="#FFD700" stroke-width="4" fill="none" />
+<!-- Saree Pattern -->
+<rect x="50" y="50" width="100" height="230" fill="url(#sareePattern)" opacity="0.3" />
+<!-- Saree Pleats -->
+<path d="M60 60 L65 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<path d="M70 60 L75 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<path d="M80 60 L85 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<path d="M90 60 L95 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<path d="M100 60 L105 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<path d="M110 60 L115 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<path d="M120 60 L125 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<path d="M130 60 L135 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<path d="M140 60 L145 280" stroke="#FF6B6B" stroke-width="1" opacity="0.6" />
+<!-- Decorative Elements -->
+<circle cx="100" cy="100" r="8" fill="#FFD700" />
+<circle cx="100" cy="120" r="6" fill="#FFD700" />
+<circle cx="100" cy="140" r="4" fill="#FFD700" />
+<!-- Saree Pallu (End Piece) -->
+<path d="M140 50 L200 50 L200 150 L140 150 Z" fill="url(#sareeGrad)" />
+<path d="M140 50 L200 50 L200 150 L140 150 Z" stroke="#FFD700" stroke-width="3" fill="none" />
+<rect x="140" y="50" width="60" height="100" fill="url(#sareePattern)" opacity="0.4" />
+</svg>

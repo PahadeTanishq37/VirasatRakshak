@@ -1,0 +1,48 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialGradient id="faceGrad" cx="50%" cy="40%" r="60%">
+<stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+</radialGradient>
+<linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+<stop offset="50%" style="stop-color:#FF8E8E;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#FFB3B3;stop-opacity:1" />
+</linearGradient>
+</defs>
+<!-- Face Base -->
+<ellipse cx="100" cy="100" rx="70" ry="90" fill="url(#faceGrad)" />
+<!-- Eye Makeup -->
+<ellipse cx="75" cy="80" rx="15" ry="25" fill="#000000" />
+<ellipse cx="125" cy="80" rx="15" ry="25" fill="#000000" />
+<!-- Eye Highlights -->
+<ellipse cx="75" cy="75" rx="8" ry="12" fill="#FFFFFF" />
+<ellipse cx="125" cy="75" rx="8" ry="12" fill="#FFFFFF" />
+<!-- Eyebrows -->
+<path d="M55 60 Q75 50 95 60" stroke="#000000" stroke-width="6" fill="none" stroke-linecap="round" />
+<path d="M105 60 Q125 50 145 60" stroke="#000000" stroke-width="6" fill="none" stroke-linecap="round" />
+<!-- Nose Design -->
+<path d="M100 85 Q95 95 100 105 Q105 95 100 85" stroke="#000000" stroke-width="3" fill="none" />
+<!-- Lips -->
+<ellipse cx="100" cy="130" rx="20" ry="8" fill="#FF0000" />
+<!-- Cheek Decorations -->
+<circle cx="50" cy="100" r="8" fill="#FF0000" />
+<circle cx="150" cy="100" r="8" fill="#FF0000" />
+<!-- Crown Base -->
+<ellipse cx="100" cy="30" rx="85" ry="25" fill="url(#crownGrad)" />
+<!-- Crown Middle -->
+<ellipse cx="100" cy="20" rx="80" ry="20" fill="#FFD700" />
+<!-- Crown Top -->
+<ellipse cx="100" cy="10" rx="75" ry="15" fill="#FF6B6B" />
+<!-- Crown Decorations -->
+<circle cx="100" cy="10" r="5" fill="#FFD700" />
+<circle cx="80" cy="15" r="3" fill="#FFD700" />
+<circle cx="120" cy="15" r="3" fill="#FFD700" />
+<circle cx="60" cy="20" r="2" fill="#FFD700" />
+<circle cx="140" cy="20" r="2" fill="#FFD700" />
+<!-- Crown Border -->
+<ellipse cx="100" cy="30" rx="85" ry="25" stroke="#FFD700" stroke-width="3" fill="none" />
+<!-- Decorative Patterns -->
+<path d="M100 40 Q110 35 120 40 Q130 45 140 40" stroke="#FFD700" stroke-width="2" fill="none" />
+<path d="M60 40 Q70 35 80 40 Q90 45 100 40" stroke="#FFD700" stroke-width="2" fill="none" />
+</svg>

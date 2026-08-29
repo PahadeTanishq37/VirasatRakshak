@@ -1,0 +1,38 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="dome" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#F8F8F8;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="base" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#F5F5F5;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#E8E8E8;stop-opacity:1" />
+</linearGradient>
+</defs>
+<rect width="400" height="400" fill="url(#sky)"/>
+<rect x="0" y="320" width="400" height="80" fill="#228B22"/>
+<rect x="100" y="200" width="200" height="120" fill="url(#dome)"/>
+<rect x="120" y="180" width="160" height="40" fill="url(#dome)"/>
+<rect x="140" y="160" width="120" height="20" fill="url(#dome)"/>
+<circle cx="200" cy="150" r="12" fill="#FFD700"/>
+<rect x="180" y="300" width="40" height="40" fill="url(#base)"/>
+<rect x="180" y="340" width="40" height="40" fill="url(#base)"/>
+<rect x="180" y="380" width="40" height="20" fill="url(#base)"/>
+<rect x="100" y="300" width="40" height="40" fill="url(#base)"/>
+<rect x="100" y="340" width="40" height="40" fill="url(#base)"/>
+<rect x="100" y="380" width="40" height="20" fill="url(#base)"/>
+<rect x="260" y="300" width="40" height="40" fill="url(#base)"/>
+<rect x="260" y="340" width="40" height="40" fill="url(#base)"/>
+<rect x="260" y="380" width="40" height="20" fill="url(#base)"/>
+<rect x="160" y="300" width="80" height="40" fill="url(#base)"/>
+<rect x="160" y="340" width="80" height="40" fill="url(#base)"/>
+<rect x="160" y="380" width="80" height="20" fill="url(#base)"/>
+<rect x="90" y="200" width="220" height="120" fill="none" stroke="#DDD" stroke-width="2"/>
+<rect x="110" y="180" width="180" height="40" fill="none" stroke="#DDD" stroke-width="2"/>
+<rect x="130" y="160" width="140" height="20" fill="none" stroke="#DDD" stroke-width="2"/>
+<text x="200" y="40" text-anchor="middle" fill="#2C3E50" font-family="serif" font-size="18" font-weight="bold">Taj Mahal</text>
+</svg>
