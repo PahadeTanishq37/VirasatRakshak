@@ -16,40 +16,35 @@
 - **Feature Showcase:** Quick access cards with smooth hover micro-animations leading to core modules.
 - **Multilingual Support:** Instant language switching across English, Hindi, Marathi, and Tamil.
 
-### 🗺️ 2. Heritage Map & Search (`MapPage.jsx`)
-- **Global & Regional Search:** Instant search bar covering Indian states, monuments, and heritage landmarks.
-- **Interactive Political Map:** Visual representation of Indian states with regional categorization (North, West, East, South).
-- **Regional Deep-Dive:** Direct navigation to region-specific heritage hubs (`/region/:region`).
-
-### 🏞️ 3. Regional States Exploration (`RegionalStatesPage.jsx`)
+### 🏞️ 2. Regional States Exploration (`RegionalStatesPage.jsx`)
 - **State Cards & SVG Shapes:** Comprehensive guide to all Indian states, capital cities, population, and land area.
 - **Cultural Identity:** Details on local festivals, traditional art forms, famous monuments, and historical heritage tags.
 - **Interactive State Modals:** High-resolution photography, state vector shapes, and comprehensive cultural breakdowns.
 
-### 🧳 4. Packaged Cultural Tours (`PackagesPage.jsx` & `PackageDestinationPage.jsx`)
+### 🧳 3. Packaged Cultural Tours (`PackagesPage.jsx` & `PackageDestinationPage.jsx`)
 - **Curated Travel Packages:** End-to-end spiritual and heritage tour itineraries (e.g., *Spiritual Shirdi Getaway*, *Shirdi + Shani Shingnapur Darshan*).
 - **Dynamic Search & Filters:** Search packages by starting city, destination, travel dates, price tier, and stay preferences.
 - **Customizable Itineraries:** Customize stay types (Standard, Deluxe, Luxury), vehicle preferences (Sedan, SUV), and cultural add-ons.
 - **Interactive Day Timelines:** Hour-by-hour itinerary breakdowns with detailed timeline modals.
 - **Offline Pack & PDF Download:** Offline caching integration via Web Cache API and print-friendly PDF itinerary export.
 
-### 📚 5. AI-Powered Storytelling (`StoryPage.jsx`)
+### 📚 4. AI-Powered Storytelling (`StoryPage.jsx`)
 - **Generative Heritage Narratives:** AI storytelling powered by Google Generative AI (`@google/generative-ai`).
 - **Interactive Audio Narration:** Voice playback controls, chapter navigation, and thematic illustrations.
 
-### 🎮 6. Gamified Heritage Quests (`GamesPage.jsx`)
+### 🎮 5. Gamified Heritage Quests (`GamesPage.jsx`)
 - **Cultural Trivia & Quests:** Interactive mini-games testing knowledge of Indian history, monuments, and art.
 - **Gamification Engine:** Real-time XP points, coin rewards, level progression, and badge achievements.
 
-### 📱 7. Augmented Reality Experience (`ARPage.jsx`, `AROverlay.jsx`, `FaceFilter.jsx`)
+### 📱 6. Augmented Reality Experience (`ARPage.jsx`, `AROverlay.jsx`, `FaceFilter.jsx`)
 - **Face Filter Try-On:** Real-time face detection using `face-api.js` for traditional headwear, jewelry, and attire.
 - **3D Artifact Placement:** 3D monument and artifact rendering powered by `Three.js`.
 
-### 🛍️ 8. Artisan Marketplace (`MarketplacePage.jsx`)
+### 🛍️ 7. Artisan Marketplace (`MarketplacePage.jsx`)
 - **Authentic Handicrafts:** Direct showcase for traditional Indian craftspeople, textiles, pottery, and sculptures.
 - **Interactive Shopping:** Product filters, detailed view modals, artisan profiles, and shopping cart management.
 
-### 👥 9. Community Hub (`CommunityPage.jsx`)
+### 👥 8. Community Hub (`CommunityPage.jsx`)
 - **Cultural Discussion:** Community posts, user story submissions, and engagement platform for heritage enthusiasts.
 
 ---
@@ -102,7 +97,6 @@ VirasatRakshak/
 │   │   └── stateData.json
 │   ├── pages/                  # Main application views
 │   │   ├── HomePage.jsx        # Landing page & hero section
-│   │   ├── MapPage.jsx         # Interactive map & site search
 │   │   ├── RegionalStatesPage.jsx # State-by-state regional guide
 │   │   ├── StoryPage.jsx       # AI storytelling & audio narrations
 │   │   ├── GamesPage.jsx       # Gamified heritage quests & XP engine
@@ -164,6 +158,9 @@ VirasatRakshak/
 
 ## 🔧 Recent Updates & Bug Fixes
 
+- **Navbar Alignment & Responsive Refactoring:** Redesigned the desktop navbar with responsive text sizes (`text-xs xl:text-[13px] 2xl:text-sm`) and modern flexbox `gap` values, ensuring perfect vertical centerline alignment for logo, links, and the language selector on all viewports.
+- **Gemini Model Connection Fix:** Resolved the AI storytelling service connectivity errors by introducing configurable environment variables (`process.env.GEMINI_MODEL`) in the server backend, defaulting to the operational `gemini-3.6-flash` model.
+- **Map Page Decommissioning:** Completely removed the `/map` page, removed its route, and updated the homepage features grid to a balanced 3-column layout.
 - **Packaged Tours Fix:** Resolved uncaught icon ReferenceError (`LocationIcon` to `MapPin`) in `PackagesPage.jsx`, fixing blank screen issues on `/packages`.
 - **Default State Handling:** Initialized `selectedDestination` state to `'shirdi'` to populate tours immediately on page load.
 - **Button Alignment Fix:** Updated global button utilities (`.btn-primary`, `.btn-secondary`, `.btn-accent` in `index.css`) with `inline-flex items-center justify-center gap-2 whitespace-nowrap` to prevent awkward text/icon wrapping across all viewports.
