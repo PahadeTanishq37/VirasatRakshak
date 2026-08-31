@@ -8,13 +8,6 @@ export const HomePage = () => {
   
   const features = [
     {
-      icon: MapPin,
-      title: t('homepage.features.map.title'),
-      description: t('homepage.features.map.description'),
-      color: 'from-saffron-500 to-saffron-600',
-      link: '/map'
-    },
-    {
       icon: Box,
       title: '3D Heritage Artifact Verse',
       description: 'Interact with 3D models of iconic temples, pillars, stupas, and ancient Indian sculptures using Three.js.',
@@ -85,7 +78,7 @@ export const HomePage = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <Link 
-                  to="/map" 
+                  to="/story" 
                   className="btn-primary text-xl px-12 py-6 inline-flex items-center justify-center transform hover:scale-110 transition-all duration-300"
                 >
                   {t('homepage.exploreButton')}
@@ -115,7 +108,7 @@ export const HomePage = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {features.map((feature, index) => {
               const Icon = feature.icon
               return (

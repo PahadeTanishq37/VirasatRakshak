@@ -18,15 +18,14 @@ export const Navbar = () => {
 
   const navItems = [
     { name: t('navbar.home'), path: '/', icon: Home },
-    { name: t('navbar.map'), path: '/map', icon: MapPin },
     { name: t('navbar.stories'), path: '/story', icon: BookOpen },
-    { name: '3D Artifacts', path: '/artifacts', icon: Box, isNew: true },
+    { name: t('navbar.artifacts'), path: '/artifacts', icon: Box, isNew: true },
     { name: t('navbar.games'), path: '/games', icon: Gamepad2 },
     { name: t('navbar.ar'), path: '/ar', icon: Camera },
-    { name: 'Offline Packs', path: '/offline', icon: Download },
+    { name: t('navbar.offline'), path: '/offline', icon: Download },
     { name: t('navbar.marketplace'), path: '/marketplace', icon: ShoppingBag },
-    { name: 'Community', path: '/community', icon: Users },
-    { name: 'Packaged Tours', path: '/packages', icon: Landmark },
+    { name: t('navbar.community'), path: '/community', icon: Users },
+    { name: t('navbar.packages'), path: '/packages', icon: Landmark },
   ]
 
   const changeLanguage = (langCode) => {
@@ -56,23 +55,23 @@ export const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden xl:flex items-center gap-x-1.5 2xl:gap-x-3.5 text-xs xl:text-[13px] 2xl:text-sm font-medium">
             {navItems.map((item) => {
               const Icon = item.icon
               return (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`relative flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
+                  className={`relative flex items-center gap-x-1.5 px-2.5 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
                     isActive(item.path)
-                      ? 'active-nav-link bg-saffron-50'
-                      : 'nav-link'
+                      ? 'active-nav-link bg-saffron-50 text-saffron-600 font-semibold'
+                      : 'nav-link text-gray-700 hover:text-saffron-600 hover:bg-saffron-50/40 font-medium'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span className="whitespace-nowrap">{item.name}</span>
                   {item.isNew && (
-                    <span className="absolute -top-2 -right-2 text-[10px] px-2 py-0.5 rounded-full bg-fuchsia-500 text-white">
+                    <span className="absolute -top-1 -right-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-fuchsia-500 text-white leading-none z-10">
                       NEW
                     </span>
                   )}
@@ -84,10 +83,12 @@ export const Navbar = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-saffron-50"
+                className="flex items-center gap-x-1.5 px-2.5 py-2 rounded-lg transition-all duration-200 hover:bg-saffron-50 text-gray-700 hover:text-saffron-600"
               >
                 <Globe className="w-4 h-4" />
-                <span>{languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}</span>
+                <span className="inline-flex items-center justify-center leading-none text-sm xl:text-base">
+                  {languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}
+                </span>
               </button>
               
               {isLangOpen && (
@@ -110,7 +111,7 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-saffron-600 transition-colors duration-200"
@@ -122,7 +123,7 @@ export const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
               {navItems.map((item) => {
                 const Icon = item.icon

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Package, Clock, CheckCircle2, AlertCircle, RefreshCw, ChevronDown, ChevronUp, X, Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const API_BASE = 'http://localhost:5000/api';
 
@@ -13,16 +14,8 @@ const STATUS_COLORS = {
   cancelled: 'bg-red-100 text-red-800'
 };
 
-const STATUS_LABELS = {
-  pending_payment: 'Pending Payment',
-  paid: 'Paid',
-  processing: 'Processing',
-  shipped: 'Shipped',
-  delivered: 'Delivered',
-  cancelled: 'Cancelled'
-};
-
 export default function MyOrdersModal({ isOpen, onClose }) {
+  const { t } = useTranslation();
   const [email, setEmail] = useState(() => {
     try { return localStorage.getItem('vr_customer_email') || ''; } catch { return ''; }
   });
@@ -34,6 +27,15 @@ export default function MyOrdersModal({ isOpen, onClose }) {
   const [orderDetail, setOrderDetail] = useState(null);
   const [isLoadingDetail, setIsLoadingDetail] = useState(false);
 
+  const STATUS_LABELS = {
+    pending_payment: t('orders.pendingPayment'),
+    paid: t('orders.paid'),
+    processing: t('orders.processing'),
+    shipped: t('orders.shipped'),
+    delivered: t('orders.delivered'),
+    cancelled: t('orders.cancelled')
+  };
+
   useEffect(() => {
     if (isOpen && email) {
       fetchOrders(email);
@@ -42,7 +44,7 @@ export default function MyOrdersModal({ isOpen, onClose }) {
 
   const fetchOrders = async (customerEmail) => {
     if (!customerEmail || !customerEmail.includes('@')) {
-      setError('Enter your email address to view your orders.');
+      setError(t('orders.emailPlaceholder'));
       return;
     }
     setIsLoading(true);
@@ -54,14 +56,14 @@ export default function MyOrdersModal({ isOpen, onClose }) {
       const data = await res.json();
 
       if (!res.ok || !data.success) {
-        setError(data.error || 'Failed to load orders.');
+        setError(data.error || t('common.error'));
         return;
       }
 
       setOrders(data.data || []);
       try { localStorage.setItem('vr_customer_email', customerEmail); } catch {}
     } catch (e) {
-      setError('Unable to connect to the server. Please check your internet connection.');
+      setError(t('common.error'));
     } finally {
       setIsLoading(false);
     }
@@ -83,12 +85,12 @@ export default function MyOrdersModal({ isOpen, onClose }) {
       const data = await res.json();
 
       if (!res.ok || !data.success) {
-        setOrderDetail({ error: data.error || 'Failed to load order details.' });
+        setOrderDetail({ error: data.error || t('common.error') });
         return;
       }
       setOrderDetail(data.data);
     } catch (e) {
-      setOrderDetail({ error: 'Unable to load order details.' });
+      setOrderDetail({ error: t('common.error') });
     } finally {
       setIsLoadingDetail(false);
     }
@@ -122,7 +124,7 @@ export default function MyOrdersModal({ isOpen, onClose }) {
           <div className="p-5 bg-gradient-to-r from-peacock-600 to-saffron-500 text-white flex items-center justify-between shrink-0">
             <div className="flex items-center space-x-3">
               <Package className="w-5 h-5" />
-              <h2 className="font-display font-bold text-lg">My Heritage Orders</h2>
+              <h2 className="font-display font-bold text-lg">{t('orders.myOrders')}</h2>
             </div>
             <button onClick={onClose} className="p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors">
               <X className="w-4 h-4" />
@@ -136,7 +138,7 @@ export default function MyOrdersModal({ isOpen, onClose }) {
                 type="email"
                 value={emailInput}
                 onChange={e => setEmailInput(e.target.value)}
-                placeholder="Enter your email to view orders"
+                placeholder={t('orders.emailPlaceholder')}
                 className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-saffron-500 outline-none"
               />
               <button
@@ -145,7 +147,7 @@ export default function MyOrdersModal({ isOpen, onClose }) {
                 className="btn-primary text-sm px-4 py-2 flex items-center space-x-1.5 disabled:opacity-60"
               >
                 {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
-                <span>Load</span>
+                <span>{t('orders.load')}</span>
               </button>
             </form>
           </div>
@@ -164,7 +166,7 @@ export default function MyOrdersModal({ isOpen, onClose }) {
             {isLoading && (
               <div className="text-center py-8">
                 <Loader2 className="w-8 h-8 text-saffron-500 animate-spin mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Loading your orders...</p>
+                <p className="text-sm text-gray-600">{t('common.loading')}</p>
               </div>
             )}
 
@@ -172,8 +174,8 @@ export default function MyOrdersModal({ isOpen, onClose }) {
             {!isLoading && !error && email && orders.length === 0 && (
               <div className="text-center py-8">
                 <Package className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                <p className="text-gray-500 font-medium">No orders found</p>
-                <p className="text-xs text-gray-400 mt-1">Orders placed with this email will appear here.</p>
+                <p className="text-gray-500 font-medium">{t('orders.noOrders')}</p>
+                <p className="text-xs text-gray-400 mt-1">{t('orders.noOrdersDesc')}</p>
               </div>
             )}
 
@@ -193,12 +195,12 @@ export default function MyOrdersModal({ isOpen, onClose }) {
                       </span>
                     </div>
                     <div className="text-xs text-gray-500">
-                      {order.itemCount} item{order.itemCount !== 1 ? 's' : ''} • {new Date(order.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+                      {order.itemCount} {order.itemCount !== 1 ? t('orders.items') : t('orders.item')} • {new Date(order.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
                     </div>
                   </div>
                   <div className="text-right shrink-0 ml-3">
                     <div className="font-bold text-gray-900 text-sm">₹{order.totalAmount?.toLocaleString()}</div>
-                    <div className="text-[10px] text-amber-700 font-semibold mt-0.5">Payment: Pending</div>
+                    <div className="text-[10px] text-amber-700 font-semibold mt-0.5">{t('packages.bookingPending')}</div>
                   </div>
                   <div className="ml-3 text-gray-400">
                     {expandedOrderId === order.orderId ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -229,7 +231,7 @@ export default function MyOrdersModal({ isOpen, onClose }) {
                           <>
                             {/* Items */}
                             <div>
-                              <h4 className="font-bold text-gray-900 mb-2 text-xs uppercase tracking-wide">Order Items</h4>
+                              <h4 className="font-bold text-gray-900 mb-2 text-xs uppercase tracking-wide">{t('orders.orderItems')}</h4>
                               <div className="space-y-2">
                                 {orderDetail.items?.map((item, i) => (
                                   <div key={i} className="flex justify-between items-center bg-white border border-gray-100 rounded-xl px-3 py-2">
@@ -245,14 +247,14 @@ export default function MyOrdersModal({ isOpen, onClose }) {
 
                             {/* Totals */}
                             <div className="bg-white border border-saffron-100 rounded-xl p-3 space-y-1.5">
-                              <div className="flex justify-between text-gray-600 text-xs"><span>Subtotal</span><span>₹{orderDetail.subtotal?.toLocaleString()}</span></div>
-                              <div className="flex justify-between text-gray-600 text-xs"><span>Shipping</span><span>₹{orderDetail.shippingAmount?.toLocaleString()}</span></div>
-                              <div className="flex justify-between font-bold text-gray-900 text-sm border-t border-gray-100 pt-1.5"><span>Total</span><span>₹{orderDetail.totalAmount?.toLocaleString()}</span></div>
+                              <div className="flex justify-between text-gray-600 text-xs"><span>{t('cart.subtotal')}</span><span>₹{orderDetail.subtotal?.toLocaleString()}</span></div>
+                              <div className="flex justify-between text-gray-600 text-xs"><span>{t('cart.shipping')}</span><span>₹{orderDetail.shippingAmount?.toLocaleString()}</span></div>
+                              <div className="flex justify-between font-bold text-gray-900 text-sm border-t border-gray-100 pt-1.5"><span>{t('marketplace.total')}</span><span>₹{orderDetail.totalAmount?.toLocaleString()}</span></div>
                             </div>
 
                             {/* Shipping Address */}
                             <div>
-                              <h4 className="font-bold text-gray-900 mb-1 text-xs uppercase tracking-wide">Shipping Address</h4>
+                              <h4 className="font-bold text-gray-900 mb-1 text-xs uppercase tracking-wide">{t('orders.shippingAddress')}</h4>
                               <p className="text-gray-600 text-xs leading-relaxed">
                                 {orderDetail.shippingAddress?.addressLine}<br />
                                 {orderDetail.shippingAddress?.city}, {orderDetail.shippingAddress?.state} — {orderDetail.shippingAddress?.pinCode}

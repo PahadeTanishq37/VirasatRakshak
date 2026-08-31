@@ -283,7 +283,7 @@ export const RegionalStatesPage = () => {
         >
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => navigate('/map')}
+              onClick={() => navigate('/')}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <ArrowLeft className="w-6 h-6 text-gray-600" />

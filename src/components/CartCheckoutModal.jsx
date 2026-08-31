@@ -2,24 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ShoppingCart, Trash2, Plus, Minus, Package, CheckCircle2, AlertCircle, Loader2, ChevronRight } from 'lucide-react';
 import { cartService } from '../services/cartService';
+import { useTranslation } from 'react-i18next';
 
 const API_BASE = 'http://localhost:5000/api';
 const SHIPPING_AMOUNT = 99;
 
-// Simple field validation
-function validateCheckout(form) {
-  const errors = {};
-  if (!form.name.trim()) errors.name = 'Name is required';
-  if (!form.email.trim() || !form.email.includes('@')) errors.email = 'Valid email is required';
-  if (!form.phone.trim() || form.phone.length < 10) errors.phone = 'Valid phone number is required';
-  if (!form.addressLine.trim()) errors.addressLine = 'Address is required';
-  if (!form.city.trim()) errors.city = 'City is required';
-  if (!form.state.trim()) errors.state = 'State is required';
-  if (!form.pinCode.trim() || !/^\d{6}$/.test(form.pinCode)) errors.pinCode = 'Valid 6-digit PIN code is required';
-  return errors;
-}
-
 export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
+  const { t } = useTranslation();
   const [step, setStep] = useState('cart'); // 'cart' | 'checkout' | 'confirmed'
   const [cartItems, setCartItems] = useState([]);
   const [form, setForm] = useState({ name: '', email: '', phone: '', addressLine: '', city: '', state: '', pinCode: '' });
@@ -27,6 +16,19 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
   const [isPlacing, setIsPlacing] = useState(false);
   const [confirmedOrder, setConfirmedOrder] = useState(null);
   const [apiError, setApiError] = useState('');
+
+  // Simple field validation
+  const validateCheckout = (form) => {
+    const errors = {};
+    if (!form.name.trim()) errors.name = `${t('cart.fullName')} is required`;
+    if (!form.email.trim() || !form.email.includes('@')) errors.email = `${t('cart.email')} is required`;
+    if (!form.phone.trim() || form.phone.length < 10) errors.phone = `${t('cart.phone')} is required`;
+    if (!form.addressLine.trim()) errors.addressLine = `${t('cart.address')} is required`;
+    if (!form.city.trim()) errors.city = `${t('cart.city')} is required`;
+    if (!form.state.trim()) errors.state = `${t('cart.state')} is required`;
+    if (!form.pinCode.trim() || !/^\d{6}$/.test(form.pinCode)) errors.pinCode = `${t('cart.pinCode')} is required`;
+    return errors;
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -137,9 +139,9 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
             <div className="flex items-center space-x-3">
               <ShoppingCart className="w-5 h-5" />
               <h2 className="font-display font-bold text-lg">
-                {step === 'cart' && `Shopping Cart (${cartItems.length} items)`}
-                {step === 'checkout' && 'Checkout — Customer Details'}
-                {step === 'confirmed' && 'Order Confirmed!'}
+                {step === 'cart' && `${t('cart.shoppingCart')} (${cartItems.length} ${t('orders.items')})`}
+                {step === 'checkout' && `${t('marketplace.checkout')} — ${t('cart.customerInfo')}`}
+                {step === 'confirmed' && t('packages.bookingConfirmed')}
               </h2>
             </div>
             <button onClick={onClose} className="p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors">
@@ -154,8 +156,8 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
                 {cartItems.length === 0 ? (
                   <div className="text-center py-10">
                     <ShoppingCart className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                    <p className="text-gray-500 font-medium">Your cart is empty</p>
-                    <p className="text-xs text-gray-400 mt-1">Add handcrafted heritage products to get started.</p>
+                    <p className="text-gray-500 font-medium">{t('marketplace.emptyCart')}</p>
+                    <p className="text-xs text-gray-400 mt-1">{t('marketplace.emptyCartDesc')}</p>
                   </div>
                 ) : (
                   cartItems.map(item => (
@@ -186,15 +188,15 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
               {cartItems.length > 0 && (
                 <div className="p-5 border-t border-gray-200 bg-gray-50/60 shrink-0">
                   <div className="space-y-1.5 text-sm mb-4">
-                    <div className="flex justify-between text-gray-600"><span>Subtotal</span><span>₹{subtotal.toLocaleString()}</span></div>
-                    <div className="flex justify-between text-gray-600"><span>Shipping</span><span>₹{SHIPPING_AMOUNT}</span></div>
-                    <div className="flex justify-between font-bold text-gray-900 text-base pt-1.5 border-t border-gray-200"><span>Estimated Total</span><span>₹{total.toLocaleString()}</span></div>
+                    <div className="flex justify-between text-gray-600"><span>{t('cart.subtotal')}</span><span>₹{subtotal.toLocaleString()}</span></div>
+                    <div className="flex justify-between text-gray-600"><span>{t('cart.shipping')}</span><span>₹{SHIPPING_AMOUNT}</span></div>
+                    <div className="flex justify-between font-bold text-gray-900 text-base pt-1.5 border-t border-gray-200"><span>{t('cart.total')}</span><span>₹{total.toLocaleString()}</span></div>
                   </div>
                   <p className="text-xs text-amber-700 bg-amber-50 border border-amber-100 rounded-xl px-3 py-2 mb-3">
                     ⚠️ Final total is calculated server-side from trusted pricing. Payment will be enabled in a future update.
                   </p>
                   <button onClick={handleProceedToCheckout} className="btn-primary w-full flex items-center justify-center space-x-2">
-                    <span>Proceed to Checkout</span>
+                    <span>{t('cart.proceedCheckout')}</span>
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -215,12 +217,12 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
               <div className="space-y-5">
                 {/* Customer Section */}
                 <div>
-                  <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">Customer Information</h3>
+                  <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">{t('cart.customerInfo')}</h3>
                   <div className="space-y-3">
                     {[
-                      { field: 'name', label: 'Full Name', placeholder: 'Ravi Kumar', type: 'text' },
-                      { field: 'email', label: 'Email Address', placeholder: 'ravi@example.com', type: 'email' },
-                      { field: 'phone', label: 'Phone Number', placeholder: '9876543210', type: 'tel' }
+                      { field: 'name', label: t('cart.fullName'), placeholder: 'Ravi Kumar', type: 'text' },
+                      { field: 'email', label: t('cart.email'), placeholder: 'ravi@example.com', type: 'email' },
+                      { field: 'phone', label: t('cart.phone'), placeholder: '9876543210', type: 'tel' }
                     ].map(({ field, label, placeholder, type }) => (
                       <div key={field}>
                         <label className="block text-xs font-medium text-gray-700 mb-1">{label}</label>
@@ -239,10 +241,10 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
 
                 {/* Shipping Section */}
                 <div>
-                  <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">Shipping Address</h3>
+                  <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">{t('orders.shippingAddress')}</h3>
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">Street Address / House No.</label>
+                      <label className="block text-xs font-medium text-gray-700 mb-1">{t('cart.address')}</label>
                       <input
                         type="text"
                         value={form.addressLine}
@@ -254,8 +256,8 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       {[
-                        { field: 'city', label: 'City', placeholder: 'Mumbai' },
-                        { field: 'state', label: 'State', placeholder: 'Maharashtra' }
+                        { field: 'city', label: t('cart.city'), placeholder: 'Mumbai' },
+                        { field: 'state', label: t('cart.state'), placeholder: 'Maharashtra' }
                       ].map(({ field, label, placeholder }) => (
                         <div key={field}>
                           <label className="block text-xs font-medium text-gray-700 mb-1">{label}</label>
@@ -271,7 +273,7 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
                       ))}
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">PIN Code</label>
+                      <label className="block text-xs font-medium text-gray-700 mb-1">{t('cart.pinCode')}</label>
                       <input
                         type="text"
                         value={form.pinCode}
@@ -287,7 +289,7 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
 
                 {/* Order Summary */}
                 <div className="bg-saffron-50 border border-saffron-100 rounded-2xl p-4 text-sm space-y-2">
-                  <h3 className="font-bold text-gray-900 mb-2">Order Summary ({cartItems.length} items)</h3>
+                  <h3 className="font-bold text-gray-900 mb-2">{t('marketplace.orderSummary')} ({cartItems.length} {t('orders.items')})</h3>
                   {cartItems.map(i => (
                     <div key={i.productId} className="flex justify-between text-gray-700">
                       <span className="truncate max-w-[180px]">{i.productName} × {i.quantity}</span>
@@ -295,17 +297,17 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
                     </div>
                   ))}
                   <div className="flex justify-between text-gray-600 pt-1 border-t border-saffron-200">
-                    <span>Shipping</span><span>₹{SHIPPING_AMOUNT}</span>
+                    <span>{t('cart.shipping')}</span><span>₹{SHIPPING_AMOUNT}</span>
                   </div>
                   <div className="flex justify-between font-bold text-gray-900 text-base">
-                    <span>Total (estimated)</span><span>₹{total.toLocaleString()}</span>
+                    <span>{t('cart.total')}</span><span>₹{total.toLocaleString()}</span>
                   </div>
                   <p className="text-xs text-gray-500">Final total confirmed by server. Payment is pending.</p>
                 </div>
 
                 <div className="flex space-x-3">
                   <button onClick={() => setStep('cart')} className="btn-secondary flex-1 text-sm py-3">
-                    ← Back to Cart
+                    ← {t('common.back')}
                   </button>
                   <button
                     onClick={handlePlaceOrder}
@@ -315,10 +317,10 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
                     {isPlacing ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Placing Order...</span>
+                        <span>{t('cart.placingOrder')}</span>
                       </>
                     ) : (
-                      <span>Place Order</span>
+                      <span>{t('cart.placeOrder')}</span>
                     )}
                   </button>
                 </div>
@@ -333,30 +335,30 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
                 <CheckCircle2 className="w-9 h-9 text-emerald-600" />
               </div>
               <div>
-                <h3 className="text-xl font-display font-bold text-gray-900">Order Placed Successfully!</h3>
-                <p className="text-sm text-gray-600 mt-1">Your heritage order has been received and confirmed.</p>
+                <h3 className="text-xl font-display font-bold text-gray-900">{t('cart.successTitle')}</h3>
+                <p className="text-sm text-gray-600 mt-1">{t('cart.successDesc')}</p>
               </div>
 
               <div className="bg-saffron-50 border border-saffron-200 rounded-2xl p-5 text-left space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Order Number</span>
+                  <span className="text-gray-600">{t('orders.orderNumber')}</span>
                   <span className="font-bold text-saffron-700">{confirmedOrder.orderNumber}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Order ID</span>
+                  <span className="text-gray-600">{t('orders.orderId')}</span>
                   <span className="font-mono text-xs text-gray-500 break-all">{confirmedOrder.orderId?.slice(0, 16)}...</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Server Total</span>
+                  <span className="text-gray-600">{t('orders.serverTotal')}</span>
                   <span className="font-bold text-gray-900">₹{confirmedOrder.totalAmount?.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Order Status</span>
-                  <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-xs font-semibold">Pending Payment</span>
+                  <span className="text-gray-600">{t('orders.orderStatus')}</span>
+                  <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-xs font-semibold">{t('orders.pendingPayment')}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Payment Status</span>
-                  <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-xs font-semibold">Pending</span>
+                  <span className="text-gray-600">{t('orders.paymentStatus')}</span>
+                  <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-xs font-semibold">{t('orders.pendingPayment')}</span>
                 </div>
               </div>
 
@@ -366,7 +368,7 @@ export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
               </div>
 
               <button onClick={onClose} className="btn-primary w-full">
-                Continue Shopping
+                {t('cart.continueShopping')}
               </button>
             </div>
           )}

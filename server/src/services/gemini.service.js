@@ -25,7 +25,7 @@ const LANGUAGE_NAMES = {
 function getModel() {
   if (!config.isAiConfigured) return null;
   const genAI = new GoogleGenerativeAI(config.geminiApiKey);
-  return genAI.getGenerativeModel({ model: 'gemini-3.6-flash' });
+  return genAI.getGenerativeModel({ model: process.env.GEMINI_MODEL || 'gemini-3.6-flash' });
 }
 
 export const GeminiService = {

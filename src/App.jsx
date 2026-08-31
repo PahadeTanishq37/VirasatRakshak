@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { HomePage } from './pages/HomePage'
-import { MapPage } from './pages/MapPage'
+
 import { RegionalStatesPage } from './pages/RegionalStatesPage'
 import { StoryPage } from './pages/StoryPage'
 import { GamesPage } from './pages/GamesPage'
@@ -38,7 +38,7 @@ function PageTransitions() {
       >
         <Routes location={location}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/map" element={<MapPage />} />
+
           <Route path="/region/:region" element={<RegionalStatesPage />} />
           <Route path="/story" element={<StoryPage />} />
           <Route path="/games" element={<GamesPage />} />

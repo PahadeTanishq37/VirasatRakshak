@@ -1,7 +1,10 @@
 import { Heart, Github, Twitter, Instagram, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export const Footer = () => {
+  const { t } = useTranslation()
+
   return (
     <footer className="bg-gradient-to-r from-saffron-600 via-peacock-600 to-marigold-500 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -13,12 +16,11 @@ export const Footer = () => {
                 <span className="text-white font-bold text-lg">भ</span>
               </div>
               <span className="text-xl font-display font-bold">
-                Digital Bharat HeritageVerse
+                {t('brand')}
               </span>
             </div>
             <p className="text-white/90 mb-6 max-w-md">
-              Preserving and celebrating India's rich cultural heritage through immersive digital experiences. 
-              Explore, learn, and connect with the timeless traditions of our incredible nation.
+              {t('footer.desc')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-white/80 hover:text-white transition-colors duration-200">
@@ -38,20 +40,19 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-white/80 hover:text-white transition-colors duration-200">Home</Link></li>
-              <li><Link to="/map" className="text-white/80 hover:text-white transition-colors duration-200">Interactive Map</Link></li>
-              <li><Link to="/story" className="text-white/80 hover:text-white transition-colors duration-200">AI Stories</Link></li>
-              <li><Link to="/games" className="text-white/80 hover:text-white transition-colors duration-200">Heritage Games</Link></li>
-              <li><Link to="/ar" className="text-white/80 hover:text-white transition-colors duration-200">AR Experience</Link></li>
-              <li><Link to="/marketplace" className="text-white/80 hover:text-white transition-colors duration-200">Artisan Market</Link></li>
+              <li><Link to="/" className="text-white/80 hover:text-white transition-colors duration-200">{t('navbar.home')}</Link></li>
+              <li><Link to="/story" className="text-white/80 hover:text-white transition-colors duration-200">{t('navbar.stories')}</Link></li>
+              <li><Link to="/games" className="text-white/80 hover:text-white transition-colors duration-200">{t('navbar.games')}</Link></li>
+              <li><Link to="/ar" className="text-white/80 hover:text-white transition-colors duration-200">{t('navbar.ar')}</Link></li>
+              <li><Link to="/marketplace" className="text-white/80 hover:text-white transition-colors duration-200">{t('navbar.marketplace')}</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.contact')}</h3>
             <div className="space-y-2 text-white/80">
               <p>New Delhi, India</p>
               <p>+91 98765 43210</p>
@@ -64,12 +65,12 @@ export const Footer = () => {
         <div className="border-t border-white/20 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white/80 text-sm">
-              © 2024 Digital Bharat HeritageVerse. All rights reserved.
+              {t('footer.rights')}
             </p>
             <div className="flex items-center space-x-1 text-white/80 text-sm mt-4 md:mt-0">
-              <span>Made with</span>
+              <span>{t('footer.madeWith')}</span>
               <Heart className="w-4 h-4 text-red-400 fill-current" />
-              <span>in India</span>
+              <span>{t('footer.inIndia')}</span>
             </div>
           </div>
         </div>
@@ -77,3 +78,4 @@ export const Footer = () => {
     </footer>
   )
 }
+

@@ -8,6 +8,11 @@
     /* Add any global border styles here if needed */
   }
   
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-gradient-to-br from-saffron-50 via-white to-peacock-50 font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
