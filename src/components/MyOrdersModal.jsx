@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Package, Clock, CheckCircle2, AlertCircle, RefreshCw, ChevronDown, ChevronUp, X, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 const STATUS_COLORS = {
   pending_payment: 'bg-amber-100 text-amber-800',

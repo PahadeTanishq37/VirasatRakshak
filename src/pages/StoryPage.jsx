@@ -24,6 +24,8 @@ import {
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
+
 export const StoryPage = () => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -162,7 +164,7 @@ export const StoryPage = () => {
         text: msg.text
       }));
 
-      const res = await fetch('/api/ai/chat', {
+      const res = await fetch(`${API_BASE}/ai/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -201,7 +203,7 @@ export const StoryPage = () => {
     setStoryError(null);
 
     try {
-      const res = await fetch('/api/ai/story', {
+      const res = await fetch(`${API_BASE}/ai/story`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

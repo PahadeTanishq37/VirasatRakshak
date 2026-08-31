@@ -4,7 +4,7 @@ import { X, ShoppingCart, Trash2, Plus, Minus, Package, CheckCircle2, AlertCircl
 import { cartService } from '../services/cartService';
 import { useTranslation } from 'react-i18next';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 const SHIPPING_AMOUNT = 99;
 
 export default function CartCheckoutModal({ isOpen, onClose, onCartChange }) {
