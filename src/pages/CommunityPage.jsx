@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Users, MessageSquare, Star, Medal, Calendar, MapPin, Upload, HeartHandshake, BookOpen, PlusCircle, Music2, Palette, Theater, Landmark, SunMedium, Building2 } from 'lucide-react'
+import { Users, MessageSquare, Star, Medal, Calendar, MapPin, Upload, HeartHandshake, BookOpen, PlusCircle, Music2, Palette, Theater, Landmark, SunMedium, Building2, ImageOff } from 'lucide-react'
+
+const DATA_VERSION = 'v2' // increment when default image paths change
 
 const loadFromStorage = (key, fallback) => {
   try {
@@ -17,6 +19,16 @@ const saveToStorage = (key, value) => {
   } catch {}
 }
 
+// One-time migration: clear stale story data when DATA_VERSION changes
+if (typeof localStorage !== 'undefined') {
+  const storedVersion = localStorage.getItem('community:dataVersion')
+  if (storedVersion !== DATA_VERSION) {
+    localStorage.removeItem('community:stories') // clear stale image paths
+    localStorage.setItem('community:dataVersion', DATA_VERSION)
+  }
+}
+
+
 const sectionVariants = {
   hidden: { opacity: 0, y: 12 },
   show: { opacity: 1, y: 0 }
@@ -25,6 +37,57 @@ const sectionVariants = {
 const cardHover = {
   hover: { y: -4, boxShadow: '0 12px 30px rgba(0,0,0,0.12)' }
 }
+
+// ─── Reusable Heritage Image Component ───────────────────────────────────────
+// Handles loading shimmer, successful display, broken-image fallback, lazy load.
+const HeritageImage = ({ src, alt, fallbackIcon = '🏛️', fallbackLabel = 'Heritage Image', className = '', credit }) => {
+  const [status, setStatus] = useState('loading') // 'loading' | 'loaded' | 'error'
+
+  const handleLoad = () => setStatus('loaded')
+  const handleError = () => setStatus('error')
+
+  return (
+    <div className={`relative overflow-hidden bg-gradient-to-br from-amber-50 to-orange-50 ${className}`}>
+      {/* Shimmer placeholder while loading */}
+      {status === 'loading' && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 animate-pulse" />
+          <div className="relative z-10 flex flex-col items-center gap-2 text-gray-400">
+            <div className="w-8 h-8 border-2 border-gray-300 border-t-amber-400 rounded-full animate-spin" />
+          </div>
+        </div>
+      )}
+
+      {/* Actual image */}
+      {status !== 'error' && (
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onLoad={handleLoad}
+          onError={handleError}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${status === 'loaded' ? 'opacity-100' : 'opacity-0'}`}
+        />
+      )}
+
+      {/* Polished fallback when image fails */}
+      {status === 'error' && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
+          <span className="text-4xl mb-2">{fallbackIcon}</span>
+          <span className="text-xs text-gray-500 font-medium px-3 text-center">{fallbackLabel}</span>
+        </div>
+      )}
+
+      {/* Subtle credit badge */}
+      {credit && status === 'loaded' && (
+        <div className="absolute bottom-1 right-1 bg-black/40 backdrop-blur-sm text-white text-[9px] px-1.5 py-0.5 rounded opacity-70">
+          {credit}
+        </div>
+      )}
+    </div>
+  )
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 const GradientButton = ({ children, onClick, className = '', type = 'button' }) => {
   return (
@@ -39,12 +102,48 @@ const GradientButton = ({ children, onClick, className = '', type = 'button' }) 
   )
 }
 
+const DEFAULT_STORIES = [
+  {
+    id: 's1',
+    title: "Grandmother's Monsoon Songs",
+    description: 'Folksongs we sing in Konkan during first rains.',
+    image: '/assets/stories/monsoon_songs.jpg',
+    imageCredit: 'Illustrated by VirasatRakshak'
+  },
+  {
+    id: 's2',
+    title: 'Pattachitra Revival',
+    description: 'How my village kept the art alive.',
+    image: '/assets/stories/pattachitra.jpg',
+    imageCredit: 'Illustrated by VirasatRakshak'
+  },
+  {
+    id: 's3',
+    title: 'Ramleela Memories',
+    description: 'Backstage stories from Varanasi.',
+    image: '/assets/stories/ramleela.jpg',
+    imageCredit: 'Illustrated by VirasatRakshak'
+  }
+]
+
+const sanitizeStories = (stored) => {
+  if (!Array.isArray(stored) || stored.length === 0) return DEFAULT_STORIES
+  return stored.map(story => {
+    if (story.id === 's1' || story.title?.includes('Monsoon')) {
+      return { ...story, image: '/assets/stories/monsoon_songs.jpg', imageCredit: 'Illustrated by VirasatRakshak' }
+    }
+    if (story.id === 's2' || story.title?.includes('Pattachitra')) {
+      return { ...story, image: '/assets/stories/pattachitra.jpg', imageCredit: 'Illustrated by VirasatRakshak' }
+    }
+    if (story.id === 's3' || story.title?.includes('Ramleela')) {
+      return { ...story, image: '/assets/stories/ramleela.jpg', imageCredit: 'Illustrated by VirasatRakshak' }
+    }
+    return story
+  })
+}
+
 export const CommunityPage = () => {
-  const [stories, setStories] = useState(() => loadFromStorage('community:stories', [
-    { id: 's1', title: 'Grandmother\'s Monsoon Songs', description: 'Folksongs we sing in Konkan during first rains.', image: '/assets/monuments/tajmahal.jpg' },
-    { id: 's2', title: 'Pattachitra Revival', description: 'How my village kept the art alive.', image: '/tajmahal.jpg' },
-    { id: 's3', title: 'Ramleela Memories', description: 'Backstage stories from Varanasi.', image: '/assets/monuments/tajmahal.jpg' }
-  ]))
+  const [stories, setStories] = useState(() => sanitizeStories(loadFromStorage('community:stories', DEFAULT_STORIES)))
 
   const [adoptedSites, setAdoptedSites] = useState(() => loadFromStorage('community:adopted', []))
   const [points, setPoints] = useState(() => loadFromStorage('community:points', 0))
@@ -62,9 +161,30 @@ export const CommunityPage = () => {
   ]))
 
   const artisans = useMemo(() => ([
-    { id: 'a1', name: 'Savita Devi', craft: 'Madhubani Painting', story: 'Third-generation artist bringing new palettes to tradition.', photo: '/assets/monuments/tajmahal.jpg' },
-    { id: 'a2', name: 'Rafiq Khan', craft: 'Blue Pottery', story: 'Combines eco-glazes with classic motifs in Jaipur.', photo: '/assets/monuments/tajmahal.jpg' },
-    { id: 'a3', name: 'Lalitha', craft: 'Kalamkari', story: 'Hand-drawn narratives of epics on organic fabrics.', photo: '/assets/monuments/tajmahal.jpg' }
+    {
+      id: 'a1',
+      name: 'Savita Devi',
+      craft: 'Madhubani Painting',
+      story: 'Third-generation artist bringing new palettes to tradition.',
+      photo: '/assets/stories/artisan_madhubani.jpg',
+      photoCredit: 'Illustrated by VirasatRakshak'
+    },
+    {
+      id: 'a2',
+      name: 'Rafiq Khan',
+      craft: 'Blue Pottery',
+      story: 'Combines eco-glazes with classic motifs in Jaipur.',
+      photo: '/assets/stories/artisan_madhubani.jpg',
+      photoCredit: 'Illustrated by VirasatRakshak'
+    },
+    {
+      id: 'a3',
+      name: 'Lalitha',
+      craft: 'Kalamkari',
+      story: 'Hand-drawn narratives of epics on organic fabrics.',
+      photo: '/assets/stories/artisan_madhubani.jpg',
+      photoCredit: 'Illustrated by VirasatRakshak'
+    }
   ]), [])
 
   const weekIndex = useMemo(() => {
@@ -75,10 +195,35 @@ export const CommunityPage = () => {
   }, [])
   const spotlight = artisans[weekIndex % artisans.length]
 
+  // Heritage Adoption sites with real local images and credit
   const heritageSites = [
-    { id: 'hampi', name: 'Hampi', description: 'A UNESCO site with ruins of Vijayanagara Empire.', image: '/assets/monuments/tajmahal.jpg' },
-    { id: 'konark', name: 'Konark Sun Temple', description: '13th-century temple dedicated to Surya.', image: '/assets/monuments/konark_sun_temple.jpg' },
-    { id: 'sanchi', name: 'Sanchi Stupa', description: 'Ancient Buddhist complex in Madhya Pradesh.', image: '/assets/monuments/tajmahal.jpg' }
+    {
+      id: 'hampi',
+      name: 'Hampi',
+      description: 'A UNESCO site with ruins of Vijayanagara Empire.',
+      image: '/assets/monuments/hampi.jpg',
+      imageCredit: 'Illustrated by VirasatRakshak',
+      fallbackIcon: '🏛️',
+      fallbackLabel: 'Hampi Ruins'
+    },
+    {
+      id: 'konark',
+      name: 'Konark Sun Temple',
+      description: '13th-century temple dedicated to Surya.',
+      image: '/assets/monuments/konark_sun_temple.jpg',
+      imageCredit: 'Illustrated by VirasatRakshak',
+      fallbackIcon: '☀️',
+      fallbackLabel: 'Konark Sun Temple'
+    },
+    {
+      id: 'sanchi',
+      name: 'Sanchi Stupa',
+      description: 'Ancient Buddhist complex in Madhya Pradesh.',
+      image: '/assets/monuments/sanchi_stupa.jpg',
+      imageCredit: 'Illustrated by VirasatRakshak',
+      fallbackIcon: '🕌',
+      fallbackLabel: 'Sanchi Stupa'
+    }
   ]
 
   useEffect(() => { saveToStorage('community:stories', stories) }, [stories])
@@ -221,22 +366,32 @@ export const CommunityPage = () => {
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {stories.map(story => (
               <motion.div key={story.id} whileHover="hover" variants={cardHover} className="bg-white rounded-xl shadow border border-gray-200 overflow-hidden relative">
-                {story.image && (
-                  <div className="relative">
-                    <img src={story.image} alt={story.title} className="w-full h-40 object-cover" />
-                    <div className="absolute top-2 left-2 w-8 h-8 rounded-lg bg-white/90 flex items-center justify-center shadow">
-                      {story.title.toLowerCase().includes('monsoon') ? (
-                        <Music2 className="w-5 h-5 text-blue-600" />
-                      ) : story.title.toLowerCase().includes('pattachitra') ? (
-                        <Palette className="w-5 h-5 text-rose-600" />
-                      ) : story.title.toLowerCase().includes('ramleela') ? (
-                        <Theater className="w-5 h-5 text-amber-600" />
-                      ) : (
-                        <BookOpen className="w-5 h-5 text-slate-700" />
-                      )}
-                    </div>
+                {/* Image area — always shown, never a blank white space */}
+                <div className="relative">
+                  <HeritageImage
+                    src={story.image}
+                    alt={story.title}
+                    fallbackIcon={
+                      story.title.toLowerCase().includes('monsoon') ? '🎵' :
+                      story.title.toLowerCase().includes('pattachitra') ? '🎨' :
+                      story.title.toLowerCase().includes('ramleela') ? '🎭' : '📖'
+                    }
+                    fallbackLabel={story.title}
+                    className="w-full h-44"
+                    credit={story.imageCredit}
+                  />
+                  <div className="absolute top-2 left-2 w-8 h-8 rounded-lg bg-white/90 flex items-center justify-center shadow">
+                    {story.title.toLowerCase().includes('monsoon') ? (
+                      <Music2 className="w-5 h-5 text-blue-600" />
+                    ) : story.title.toLowerCase().includes('pattachitra') ? (
+                      <Palette className="w-5 h-5 text-rose-600" />
+                    ) : story.title.toLowerCase().includes('ramleela') ? (
+                      <Theater className="w-5 h-5 text-amber-600" />
+                    ) : (
+                      <BookOpen className="w-5 h-5 text-slate-700" />
+                    )}
                   </div>
-                )}
+                </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg">{story.title}</h3>
                   <p className="text-gray-600 mt-1 line-clamp-2">{story.description}</p>
@@ -264,7 +419,14 @@ export const CommunityPage = () => {
               return (
                 <motion.div key={site.id} whileHover="hover" variants={cardHover} className="bg-white rounded-xl shadow border border-gray-200 overflow-hidden relative">
                   <div className="relative">
-                    <img src={site.image} alt={site.name} className="w-full h-40 object-cover" />
+                    <HeritageImage
+                      src={site.image}
+                      alt={`${site.name} heritage site`}
+                      fallbackIcon={site.fallbackIcon}
+                      fallbackLabel={site.fallbackLabel}
+                      className="w-full h-44"
+                      credit={site.imageCredit}
+                    />
                     <div className="absolute top-2 left-2 w-8 h-8 rounded-lg bg-white/90 flex items-center justify-center shadow">
                       {site.id === 'hampi' ? (
                         <Landmark className="w-5 h-5 text-amber-700" />
@@ -382,7 +544,14 @@ export const CommunityPage = () => {
           <h2 className="text-2xl font-bold flex items-center gap-2"><BookOpen className="w-5 h-5" /> Artisan Spotlight</h2>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.div whileHover="hover" variants={cardHover} className="bg-white rounded-xl shadow border border-gray-200 overflow-hidden md:col-span-2">
-              <img src={spotlight.photo} alt={spotlight.name} className="w-full h-56 object-cover" />
+              <HeritageImage
+                src={spotlight.photo}
+                alt={`${spotlight.name} - ${spotlight.craft} artisan`}
+                fallbackIcon="🎨"
+                fallbackLabel={spotlight.name}
+                className="w-full h-56"
+                credit={spotlight.photoCredit}
+              />
               <div className="p-4">
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-lg">{spotlight.name}</h3>
@@ -458,7 +627,16 @@ export const CommunityPage = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/40" onClick={() => setSelectedStory(null)} />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative bg-white rounded-xl shadow-xl border border-gray-200 w-full max-w-2xl mx-4 p-0 overflow-hidden">
-            {selectedStory.image && <img src={selectedStory.image} alt={selectedStory.title} className="w-full h-64 object-cover" />}
+            {selectedStory.image && (
+              <HeritageImage
+                src={selectedStory.image}
+                alt={selectedStory.title}
+                fallbackIcon="📖"
+                fallbackLabel={selectedStory.title}
+                className="w-full h-64"
+                credit={selectedStory.imageCredit}
+              />
+            )}
             <div className="p-6">
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-xl font-semibold">{selectedStory.title}</h3>

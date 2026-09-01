@@ -97,12 +97,19 @@ export const GeminiService = {
     let storyContent = responseText;
 
     try {
-      const cleanJson = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+      // Strip markdown code fences if present
+      let cleanJson = responseText.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
+      // Try to extract a JSON object from the response using regex
+      const jsonMatch = cleanJson.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        cleanJson = jsonMatch[0];
+      }
       const parsed = JSON.parse(cleanJson);
       if (parsed.title) storyTitle = parsed.title;
       if (parsed.story) storyContent = parsed.story;
     } catch (e) {
-      // Use raw output if JSON parsing fails
+      // Use raw output if JSON parsing fails — still a valid story
+      console.warn('[GeminiService] JSON parse failed, using raw response text:', e.message);
     }
 
     return {

@@ -199,6 +199,7 @@ export const StoryPage = () => {
 
   // Handle Real AI Story Generation Request
   const handleGenerateStory = async () => {
+    if (isGeneratingStory) return; // Prevent duplicate requests
     setIsGeneratingStory(true);
     setStoryError(null);
 
@@ -219,15 +220,28 @@ export const StoryPage = () => {
       if (data.success) {
         setGeneratedStory(data);
       } else {
-        setStoryError(data.error || 'Failed to generate story.');
+        // Show specific error messages based on HTTP status
+        if (res.status === 503) {
+          setStoryError('The Heritage AI service is not configured on the server. Please set GEMINI_API_KEY in server/.env and restart the backend.');
+        } else if (res.status === 429) {
+          setStoryError('The AI service is temporarily rate-limited. Please wait a moment and try again.');
+        } else {
+          setStoryError(data.error || 'Failed to generate story. Please try again.');
+        }
+        console.error('[Story Generation] Backend error:', res.status, data);
       }
     } catch (err) {
-      console.error('Story Generation error:', err);
-      setStoryError('Network error connecting to AI backend.');
+      console.error('[Story Generation] Network error:', err);
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        setStoryError('Unable to connect to the Heritage AI service. Please ensure the backend server is running (npm run server) and try again.');
+      } else {
+        setStoryError('The Heritage Guide is temporarily unavailable. Please try again.');
+      }
     } finally {
       setIsGeneratingStory(false);
     }
   };
+
 
   // Text-To-Speech Narration for Generated Story
   const toggleSpeechNarration = (text) => {
